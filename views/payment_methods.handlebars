@@ -26,3 +26,66 @@
             </div>
         </div>
     </nav>
+
+    <h1>Payment Methods</h1>
+    <p>This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
+    <table>
+          <legend>Insert New Payment Method</legend>
+      <tr>
+        <td>
+          <div class="row justify-content-center">
+            <form class="" action="index.html" method="post" onsumbit="event.preventDefault()" autocomplete="off">
+              <div class="form-group">
+                <label>Payment Method Id</label>
+                <input type="text" name="payment_method_id" class= "form-control" value="" id="payment_method_id">
+              </div>
+              <div class="form-group">
+                <label>Customer Id</label>
+                <input type="text" name="customer_id" class= "form-control" value="" id="customer_id">
+              </div>
+              <div class="form-group">
+                <label>Payment Type</label>
+                <input type="text" name="payment_type" class= "form-control" value="" id="payment_type">
+              </div>
+              <div class="form-group">
+                <label>Credit Card Name</label>
+                <input type="text" name="credit_card_name" class= "form-control" value="" id="credit_card_name">
+              </div>
+              <div class="form-group">
+                <label>Credit Card Number</label>
+                <input type="text" name="credit_card_number" class= "form-control" value="" id="credit_card_number">
+              </div>
+              <div class="form-group">
+                <label>Credit Card Expiraton Date</label>
+                <input type="text" name="credit_card_exp_date" class= "form-control" value="" id="credit_card_exp_date">
+              </div>
+              <br>
+              <div class="form-group" "form-action-buttons">
+                <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+              </div>
+              <br>
+              <div class="form-group" "form-action-buttons">
+                <button type="button" class="btn btn-primary" name="View All" id="button1">View All</button>
+              </div>
+            </form>
+          </div>
+        </td>
+        <td>
+            <table class="lidt" id="paymentMethods">
+              <thead>
+                <th>payment_method_id</th>
+                <th>customer_id</th>
+                <th>payment_type</th>
+                <th>credit_card_name</th>
+                <th>credit_card_number</th>
+                <th>credit_card_exp_date</th>
+
+              </thead>
+
+            </table>
+        </td>
+      </tr>
+    </table>
+<div class="row justify-content-center">
+
+</div>
