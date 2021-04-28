@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Sshoe Mania</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -14,10 +13,10 @@
           <a id="orders" class="nav-link" href="/orders">Orders</a>
         </li>
         <li class="nav-item">
-          <a id="paymentMethods" class="nav-link" href="/paymentMethods">Payment Methods</a>
+          <a id="paymentMethods" class="nav-link active" href="/paymentMethods">Payment Methods</a>
         </li>
         <li class="nav-item">
-          <a id="products" class="nav-link active" href="/products">Products</a>
+          <a id="products" class="nav-link" href="/products">Products</a>
         </li>
         <li class="nav-item">
           <a id="ordersProducts" class="nav-link" href="/ordersProducts">Orders Products</a>
@@ -27,11 +26,9 @@
   </div>
 </nav>
 
-
 <div class="" style=" margin-left: 50px; margin-top: 50px;">
-  <h1>Product</h1>
-  <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new product into the database, <b>update</b>
-    a product from the database, <b>delete</b> a product from the database, and <b>select all</b> products.</p>
+  <h1>Payment Methods</h1>
+  <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
   <table>
 
     <tr>
@@ -40,25 +37,21 @@
         <div class="row justify-content-center">
           <form class="" action="index.html" method="post" autocomplete="off">
             <div class="form-group">
-              <legend>Insert New Product</legend>
-              <label>Product Name</label>
-              <input type="text" name="payment_type" class="form-control" value=""
-                placeholder="Enter Payment Name Here..." size="40" id="product_name">
+              <legend>Insert New Payment Method</legend>
+              <label>Payment Type</label>
+              <input type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Method Type..." size="40" id="payment_type">
             </div>
             <div class="form-group">
-              <label>Product Price</label>
-              <input type="text" name="credit_card_name" class="form-control" value=""
-                placeholder="Enter Product Price Here..." id="product_price">
+              <label>Credit Card Name</label>
+              <input type="text" name="credit_card_name" class="form-control" value="" placeholder="Enter Credit Card Name..." id="credit_card_name">
             </div>
             <div class="form-group">
-              <label>Product Information</label>
-              <input type="text" name="credit_card_number" class="form-control" value=""
-                placeholder="Enter Product Details Here..." id="product_details">
+              <label>Credit Card Number</label>
+              <input type="text" name="credit_card_number" class="form-control" value="" placeholder="Enter Credit Card Number..." id="credit_card_number">
             </div>
             <div class="form-group">
-              <label>Stock Amount</label>
-              <input type="text" name="credit_card_exp_date" class="form-control" value=""
-                placeholder="Enter Stock Amount Here..." id="stock_amount">
+              <label>Credit Card Expiraton Date</label>
+              <input type="text" name="credit_card_exp_date" class="form-control" value="" placeholder="Enter Credit Card Expiration Date..." id="credit_card_exp_date">
             </div>
             <br>
             <div class="form-group" "form-action-buttons">
@@ -66,7 +59,7 @@
             </div>
             <br>
             <div class="form-group" "form-action-buttons">
-              <button type="button" class="btn btn-primary" name="View All" id="button1">View All Products</button>
+              <button type="button" class="btn btn-primary" name="View All" id="button1">View All Payment Methods</button>
             </div>
           </form>
         </div>
@@ -77,17 +70,15 @@
           <thead>
             <tr>
               <th>id#</th>
-              <th>Payment Name</th>
               <th>Payment Type</th>
-              <th>Product Price</th>
-              <th>Product Information</th>
-              <th>Stock Amount</th>
+              <th>Credit Card Name</th>
+              <th>Credit Card Number</th>
+              <th>Credit Card Expiraton Date</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th>1</th>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -103,7 +94,6 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
               <td>
                 <button type="button" class="btn btn-primary" name="Edit" id="button1">Edit</button>
                 <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
@@ -111,7 +101,6 @@
             </tr>
             <tr>
               <th>3</th>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
