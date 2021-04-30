@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Sshoe Mania</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="customers" class="nav-link" aria-current="page" href="/">Customers</a>
+        </li>
+        <li class="nav-item">
+          <a id="orders" class="nav-link" href="/orders">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a id="paymentMethods" class="nav-link active" href="/paymentMethods">Payment Methods</a>
+        </li>
+        <li class="nav-item">
+          <a id="products" class="nav-link" href="/products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a id="ordersProducts" class="nav-link" href="/ordersProducts">Orders Products</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="" style=" margin-left: 50px; margin-top: 50px;">
+  <h1>Payment Methods</h1>
+  <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
+  <table>
+
+    <tr>
+
+      <td>
+        <div class="row justify-content-center">
+          <form class="" action="index.html" method="post" autocomplete="off">
+            <div class="form-group">
+              <legend>Insert New Payment Method</legend>
+              <label>Payment Type</label>
+              <input type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Method Type..." size="40" id="payment_type">
+            </div>
+            <div class="form-group">
+              <label>Credit Card Name</label>
+              <input type="text" name="credit_card_name" class="form-control" value="" placeholder="Enter Credit Card Name..." id="credit_card_name">
+            </div>
+            <div class="form-group">
+              <label>Credit Card Number</label>
+              <input type="text" name="credit_card_number" class="form-control" value="" placeholder="Enter Credit Card Number..." id="credit_card_number">
+            </div>
+            <div class="form-group">
+              <label>Credit Card Expiraton Date</label>
+              <input type="text" name="credit_card_exp_date" class="form-control" value="" placeholder="Enter Credit Card Expiration Date..." id="credit_card_exp_date">
+            </div>
+            <br>
+            <div class="form-group" "form-action-buttons">
+              <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+            </div>
+            <br>
+            <div class="form-group" "form-action-buttons">
+              <button type="button" class="btn btn-primary" name="View All" id="button1">View All Payment Methods</button>
+            </div>
+          </form>
+        </div>
+      </td>
+      <td>
+        <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 220px;">
+
+          <thead>
+            <tr>
+              <th>id#</th>
+              <th>Payment Type</th>
+              <th>Credit Card Name</th>
+              <th>Credit Card Number</th>
+              <th>Credit Card Expiraton Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button type="button" class="btn btn-primary" name="Edit" id="button1">Edit</button>
+                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button type="button" class="btn btn-primary" name="Edit" id="button1">Edit</button>
+                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <button type="button" class="btn btn-primary" name="Edit" id="button1">Edit</button>
+                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+  </table>
+  </td>
+  </tr>
+  </table>
+  <div class="row justify-content-center">
+  </div>
