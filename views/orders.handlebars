@@ -60,6 +60,19 @@
             <div class="dropdown">
               <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
+                Insert Product (ID)
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">New Balance 992 Joe Freshgoods</a>
+                <a class="dropdown-item" href="#">Air Jordans 13 Retro Flint<</a>
+                <a class="dropdown-item" href="#">New Balance 340</a>
+              </div>
+          </div>
+            <br>
+            <br>
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 Select Payment ID
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -67,7 +80,7 @@
                 <a class="dropdown-item" href="#">2</a>
                 <a class="dropdown-item" href="#">3</a>
               </div>
-            </div>
+
             <br>
             <br>
 
@@ -83,16 +96,14 @@
           </form>
         </div>
         <br>
-        <br>
         <button class="btn-primary">View all Orders</button>
       </td>
-      <td style="
-    padding-bottom: 1px;
-">
-        <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 100px;">
+      <td style="padding-bottom: 1px;">
+        <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 325px;">
           <thead>
             <tr>
               <th>Order Id #</th>
+              <th>Customer Name</th>
               <th>Product Name</th>
               <th>Quantity</th>
               <th>Order Date</th>
@@ -102,10 +113,11 @@
           <tbody>
             <tr>
               <th>1</th>
-              <td>Null</td>
-              <td>0</td>
+              <td>John Smith</td>
+              <td>Air Jordans 13 Retro Flint</td>
+              <td>1</td>
               <td>05/01/2021</td>
-              <td>$0.00</td>
+              <td>$286.99</td>
               <td>
                 <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
                 <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
@@ -113,10 +125,11 @@
             </tr>
             <tr>
               <th>2</th>
-              <td>Air Jordans 13 Retro Flint</td>
-              <td>1</td>
-              <td>05/01/2021</td>
-              <td>$286.99</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
               <td>
                 <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
                 <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
@@ -128,6 +141,7 @@
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
               <td>
                 <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
                 <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
@@ -135,117 +149,11 @@
             </tr>
           </tbody>
         </table>
-  </table>
-  </td>
-  </tr>
-  </table>
-  <div class="row justify-content-center">
-  </div>
   <div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
-      {{!-- <div class="searchbar">
-        <input id="order_search" class="search_input" size="25" type="text" name=""
-          placeholder="Search Database by Order ID...">
-        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-      </div> --}}
-    </div>
-  </div>
-
-  <div class="" style=" margin-left: 50px; margin-top: 50px;">
-    <h1>Orders Products</h1>
-    <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new order into the database, <b>delete</b>
-      a order from the database, and <b>select all</b> orders.</p>
-    <table>
-      <tr>
-        <td>
-          <div class="row justify-content-center">
-            {{!-- <form class="" action="index.html" method="post" autocomplete="off">
-              <div class="form-group">
-                <legend>Insert Order_Payments</legend>
-                <label>Order Id</label>
-                <input type="text" name="Order Id" class="form-control" value="" placeholder="Enter Order Id Here..."
-                  size="40" id="order_id">
-              </div>
-              <div class="form-group">
-                <label>Product Id</label>
-                <input type="text" name="Product Id" class="form-control" value=""
-                  placeholder="Enter Product Id Here..." id="product_Id">
-              </div>
-          </div>
-          <br>
-          <div class="form-group" "form-action-buttons">
-            <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
-          </div>
-          <br>
-          </form> --}}
-          <div class="dropdown">
-            <button type="button" class="btn btn-primary" "dropbtn">Insert Product (ID)</button>
-            <div class="dropdown-content">
-              <a href="#">NULL Order (i think an order HAS to have a product to exist right?)</a>
-              <a href="#">Air Jordans 13 Retro Flint</a>
-              <a href="#">New Balance 992 Joe Freshgoods</a>
-            </div>
-            <div class="">
-              <p style=" font-size: 13px">(Note: to pick multiple Products simply pick another product)</p>
-            </div>
-
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Select Order (ID)
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">1</a>
-              <a class="dropdown-item" href="#">2</a>
-              <a class="dropdown-item" href="#">3</a>
-            </div>
-          </div>
-
-          <button type="button" class="btn btn-primary" name="View All" id="button1">View All Orders
-            Products</button>
-  </div>
-  </td>
-  <td>
-    <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 100px;">
-      <thead>
-        <tr>
-          <th>id#</th>
-          <th>Order Id</th>
-          <th>Product Id</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td></td>
-          <td></td>
-          <td>
-            <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-            <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td></td>
-          <td></td>
-          <td>
-            <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-            <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td></td>
-          <td></td>
-          <td>
-            <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-            <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    </table>
-  </td>
-  </tr>
-  </table>
+       <div class="d-flex justify-content-center h-100">
+         <div class="searchbar">
+           <input id ="customer_search" class="search_input" type="text" name="" placeholder="Search Order Database by Order Id#...">
+           <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+         </div>
+       </div>
+     </div>
