@@ -16,8 +16,4 @@ router.get("/products", (req, res) => {
     res.render("products");
 })
 
-router.get("/ordersProducts", (req, res) => {
-    res.render("orders_products");
-})
-
 module.exports = router;
