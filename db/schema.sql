@@ -11,7 +11,7 @@ CREATE TABLE Orders (
     payment_method_id INT,
     order_date DATE NOT NULL,
     price_total DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY(customer_id) REFERENCES Customer(customer_id),
+    FOREIGN KEY(customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE,
     FOREIGN KEY(payment_method_id) REFERENCES Payment_Methods(payment_method_id),
     PRIMARY KEY (order_id)
 );
@@ -47,8 +47,6 @@ CREATE TABLE Orders_Products (
 	order_product_id INT AUTO_INCREMENT NOT NULL,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES Products(product_id) ON DELETE CASCADE
 );
-    
-
