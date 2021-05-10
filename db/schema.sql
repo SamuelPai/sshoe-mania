@@ -100,3 +100,6 @@ VALUES
     (3, 6);
 SELECT * FROM Orders_Products;
 
+-- Query to see all the Product(s) that belong to each customer;
+SELECT c.customer_name, p.product_name
+FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Orders_Products op ON o.order_id = op.order_id JOIN Products p ON op.product_id = p.product_id;
