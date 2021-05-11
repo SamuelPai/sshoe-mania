@@ -1,8 +1,3 @@
--- SELECT DATABASE() FROM DUAL;
--- DROP DATABASE sshoe_mania;
--- CREATE DATABASE sshoe_mania;
--- USE sshoe_mania;
-
 -- Database Schema
 CREATE TABLE Customers (
 	customer_id INT AUTO_INCREMENT NOT NULL,
@@ -58,7 +53,6 @@ VALUES
     ("Kelly Mateo", "cats@gmail.com", "1553456785"),
     ("Bill Li", "goats@gmail.com", "8853456785"),
     ("Chip Jones", "pringles@gmail.com", "9053456785");
-SELECT * FROM Customers;
 
 INSERT INTO Payment_Methods (payment_type, credit_card_name, credit_card_number, credit_card_exp_date)
 VALUES
@@ -67,7 +61,6 @@ VALUES
     ("Credit Card", "AMEX", "373010965743147", "2024-11-23"),
     ("Credit Card", "Maestro", "6761448681692825", "2028-12-25"),
     ("Credit Card", "Discover", "6011703981813036", "2039-08-13");
-SELECT * FROM Payment_Methods;
 
 INSERT INTO Products (product_name, product_price, product_information, stock_amount)
 VALUES
@@ -81,14 +74,12 @@ VALUES
     ("Balmain B-Court", 30.00, "The shoe is made with high-quality leather and extra padding. The back of the sole features a glossy rubberized trip with the luxury house logo embossed at the heel.", 7),
     ("Gucci Screener", 6000.00, "Gucci nailed the sneakers throwback design with this retro-inspired shoe. Influenced by classic runners from the ’70s, this pair of Gucci Screener sneakers are carefully distressed to look like authentic vintage sports shoes.", 12),
     ("Tom Ford Warwick", 3000.00, "Easy to wear with everything for a casual to business casual look. Made in Italy from premium materials, this pair of Tom Ford Warwick sneakers is finished with discreet branding, including perforated ‘T’s and gold designer stamps.", 1);
-SELECT * FROM Products;
 
 INSERT INTO Orders (customer_id, payment_method_id, order_date, price_total)
 VALUES
 	(4, 3, "2020-01-02", 300.00),
     (1, 1, "2018-07-04", 380.00),
     (2, 5, "2021-03-12", 350.00);
-SELECT * FROM Orders;
 
 INSERT INTO Orders_Products (order_id, product_id)
 VALUES
@@ -98,8 +89,4 @@ VALUES
     (2, 4),
     (3, 5),
     (3, 6);
-SELECT * FROM Orders_Products;
 
--- Query to see all the Product(s) that belong to each customer;
-SELECT c.customer_name, p.product_name
-FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Orders_Products op ON o.order_id = op.order_id JOIN Products p ON op.product_id = p.product_id;
