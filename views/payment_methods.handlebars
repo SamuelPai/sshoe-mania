@@ -25,102 +25,52 @@
 
 <div class="" style=" margin-left: 50px; margin-top: 50px;">
   <h1>Payment Methods</h1>
-  <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
-  <table>
+  <p>This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
 
-    <tr>
+  <form id ="payment_form">
+    <div class="form-group">
+      <legend>Insert New Payment Method</legend>
+      <label>Payment Type</label>
+      <input id = "payment_type" type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Method Type..." size="40" id="payment_type">
+    </div>
+    <div class="form-group">
+      <label>Credit Name</label>
+      <input id = "credit_card_name" type="text" name="Credit_card_name" class="form-control" value="" placeholder="Enter Credit Card Name..." id="Credit_card_name">
+    </div>
+    <div class="form-group">
+      <label>Credit Number</label>
+      <input id = "credit_card_number" type="text" name="Credit_card_number" class="form-control" value="" placeholder="Enter Credit Card Number..." id="Credit_card_number">
+    </div>
+    <div class="form-group">
+      <label>Credit Card Expiraton Date</label>
+      <input id = "credit_card_exp_date" type="text" name="Credit_card_exp_date" class="form-control" value="" placeholder="Enter Credit Card Expiration Date..." id="Credit_card_exp_date">
+    </div>
+    <br>
+    <div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
 
-      <td>
-        <div class="row justify-content-center">
-          <form class="" action="index.html" method="post" autocomplete="off">
-            <div class="form-group">
-              <legend>Insert New Payment Method</legend>
-              <label>Payment Type</label>
-              <input type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Method Type..." size="40" id="payment_type">
-            </div>
-            <div class="form-group">
-              <label>Credit Name</label>
-              <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="Enter Credit Card Name..." id="Credit_card_name">
-            </div>
-            <div class="form-group">
-              <label>Credit Number</label>
-              <input type="text" name="Credit_card_number" class="form-control" value="" placeholder="Enter Credit Card Number..." id="Credit_card_number">
-            </div>
-            <div class="form-group">
-              <label>Credit Card Expiraton Date</label>
-              <input type="text" name="Credit_card_exp_date" class="form-control" value="" placeholder="Enter Credit Card Expiration Date..." id="Credit_card_exp_date">
-            </div>
-            <br>
-            <div class="form-group" "form-action-buttons">
-              <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
-            </div>
-            <br>
-            <div class="form-group" "form-action-buttons">
-              <button type="button" class="btn btn-primary" name="View All" id="button1">View All Payment Methods</button>
-            </div>
-          </form>
-        </div>
-      </td>
-      <td>
-        <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 220px;">
 
-          <thead>
-            <tr>
-              <th>id#</th>
-              <th>Payment Type</th>
-              <th>Credit Card Name</th>
-              <th>Credit Card Number</th>
-              <th>Credit Card Expiraton Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>1</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+
+  <table id="payment_table">
+
+      <tr >
+        <th>Payment Type</th>
+        <th>Credit Card Name</th>
+        <th>Credit Card Number</th>
+        <th>Credit Card Expiraton Date</th>
+      </tr>
+
+      {{#each paymentMethod}}
+        <tr>
+          <td>{{payment_type}}</td>
+          <td>{{credit_card_name}}</td>
+          <td>{{credit_card_number}}</td>
+          <td>{{credit_card_exp_date}}</td>
+        </tr>
+      {{/each}}
+
 
   </table>
-  </td>
-  </tr>
-  </table>
-  <div class="row justify-content-center">
-  </div>
-  <div class="container h-100">
-       <div class="d-flex justify-content-center h-100">
-         <div class="searchbar">
-           <input id ="customer_search" class="search_input" type="text" name="" placeholder="Search Payment Methods Database...">
-           <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-         </div>
-       </div>
-     </div>
+</div>
