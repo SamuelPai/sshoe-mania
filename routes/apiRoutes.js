@@ -11,9 +11,22 @@ router.post("/customer", (req, res) => {
             console.log(err);
             return;
         }
-        res.send("Number of records created: " + result.affectedRows)
-    })
-})
+        res.sendStatus(200);
+    });
+});
+
+router.post("/product", (req, res) => {
+
+    let userInput = Object.values(req.body);
+    let sqlQuery = "INSERT INTO Products (product_name, product_price, product_information, stock_amount) VALUES (?, ?, ?, ?)";
+    mysql.pool.query(sqlQuery, userInput, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.sendStatus(200);
+    });
+});
 
 
 

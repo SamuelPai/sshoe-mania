@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Sshoe Mania</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -34,27 +35,31 @@
 
       <td>
         <div class="row justify-content-center">
-          <form class="" action="index.html" method="post" autocomplete="off">
+          <form id = "product_form" class="" autocomplete="off">
             <div class="form-group">
               <legend>Insert New Product</legend>
               <label>Product Name</label>
-              <input type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Name Here..." size="40" id="product_name">
+              <input id="product_name" type="text" name="payment_type" class="form-control" value=""
+                placeholder="Enter Payment Name Here..." size="40" id="product_name">
             </div>
             <div class="form-group">
               <label>Product Price</label>
-              <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="Enter Product Price Here..." id="product_price">
+              <input id = "product_price" type="text" name="Credit_card_name" class="form-control" value=""
+                placeholder="Enter Product Price Here..." id="product_price">
             </div>
             <div class="form-group">
               <label>Product Information</label>
-              <input type="text" name="Credit_card_number" class="form-control" value="" placeholder="Enter Product Details Here..." id="product_details">
+              <input id="product_info" type="text" name="Credit_card_number" class="form-control" value=""
+                placeholder="Enter Product Details Here..." id="product_details">
             </div>
             <div class="form-group">
               <label>Stock Amount</label>
-              <input type="text" name="Credit_card_exp_date" class="form-control" value="" placeholder="Enter Stock Amount Here..." id="stock_amount">
+              <input id="product_amount" type="text" name="Credit_card_exp_date" class="form-control" value=""
+                placeholder="Enter Stock Amount Here..." id="stock_amount">
             </div>
             <br>
             <div class="form-group" "form-action-buttons">
-              <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+              <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
             </div>
             <br>
             <hr>
@@ -63,7 +68,26 @@
         </div>
       </td>
       <td>
-        <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 220px;">
+        <table id="product_table">
+          <tr>
+            <th class="table-headers">Product Name</th>
+            <th class="table-headers">Price</th>
+            <th class="table-headers">Information</th>
+            <th class="table-headers">Stock Amount</th>
+          </tr>
+          {{#each product}}
+          <tr id={{this.id}}>
+            <td>{{this.product_name}}</td>
+            <td>{{this.product_price}}</td>
+            <td>{{this.product_information}}</td>
+            <td>{{this.stock_amount}}</td>
+            <td><button value={{this.id}} class="delete">Delete</button></td>
+            <td><button value={{this.id}} class="update">Update</button></td>
+          </tr>
+          {{/each}}
+        </table>
+
+        {{!-- <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 220px;">
 
           <thead>
             <tr>
@@ -109,16 +133,9 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> --}}
       </td>
   </table>
 </div>
-<div class="container h-100">
-     <div class="d-flex justify-content-center h-100">
-       <div class="searchbar">
-         <input class="search_input" type="text" size="25" name="" placeholder="Search Products Database...">
-         <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-       </div>
-     </div>
-   </div>
-   <br>
+
+<br>

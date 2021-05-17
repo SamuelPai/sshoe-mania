@@ -2,6 +2,8 @@ let customer_form = document.getElementById("customer_form");
 let customer_name = document.getElementById("userName");
 let customer_email = document.getElementById("userEmail");
 let customer_phone = document.getElementById("userPhone");
+let search_button = document.getElementById("search_btn");
+let search_input = document.getElementById("customer_search")
 
 customer_form.addEventListener("submit", e => {
     e.preventDefault();
@@ -24,7 +26,10 @@ customer_form.addEventListener("submit", e => {
     }).then(response => {
         console.log(response);
         customer_form.reset();
+        window.location.reload("/products");
     })
+})
 
+search_button.addEventListener("click", event => {
     
 })

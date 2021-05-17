@@ -1,7 +1,23 @@
 const router = require("express").Router();
+const mysql = require("../db/dbcon");
+
 
 router.get("/", (req, res) => {
-    res.render("index");
+    let sqlQuery = "SELECT * FROM Customers";
+    mysql.pool.query(sqlQuery, (err, result) => {
+    if (err) {
+            console.log(err);
+        }
+    else {
+        // handlebars accepts an object an then one property that should hold an array of values.
+        let data = {
+            customer: result
+        }
+        res.render("index", data);
+    }
+        
+    })
+    
 })
 
 router.get("/orders", (req, res) => {
@@ -13,7 +29,20 @@ router.get("/paymentMethods", (req, res) => {
 })
 
 router.get("/products", (req, res) => {
-    res.render("products");
+    let sqlQuery = "SELECT * FROM Products";
+    mysql.pool.query(sqlQuery, (err, result) => {
+        if (err) {
+                console.log(err);
+            }
+        else {
+            // handlebars accepts an object an then one property that should hold an array of values.
+            let data = {
+                product: result
+            }
+            res.render("products", data);
+        }
+            
+        })
 })
 
 module.exports = router;
