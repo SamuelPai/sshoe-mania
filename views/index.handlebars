@@ -26,19 +26,19 @@
 
 <h1>Customers</h1>
 <p>This page allows you to <b>insert</b> a new customer into the database, <b>delete</b> a customer, and <b>select</b> all customers</p>
-<form>
+<form id="customer_form">
     <legend>Insert New Customer</legend>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Customer Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Wendy Smith">
+        <label for="userName" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" id="userName" aria-describedby="userName" placeholder="Wendy Smith">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Customer Email</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="wendy@example.com">
+        <label for="userEmail" class="form-label">Customer Email</label>
+        <input type="email" class="form-control" id="userEmail" placeholder="wendy@example.com">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Customer Phone Number</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="555-123-9654">
+        <label for="userPhone" class="form-label">Customer Phone Number</label>
+        <input type="text" class="form-control" id="userPhone" placeholder="555-123-9654">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
