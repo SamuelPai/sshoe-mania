@@ -24,8 +24,8 @@
     </div>
 </nav>
 
-<h1>Customers</h1>
-<p>This page allows you to <b>insert</b> a new customer into the database, <b>delete</b> a customer, and <b>select</b> all customers</p>
+<h1 class="title">Customers</h1>
+<p class="title">This page allows you to <b>insert</b> a new customer into the database, <b>delete</b> a customer, and <b>select</b> all customers</p>
 <form id="customer_form">
     <legend>Insert New Customer</legend>
     <div class="mb-3">
@@ -43,7 +43,7 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
- <div class="container h-100">
+ <div >
       <div class="d-flex justify-content-center h-100">
         <div class="searchbar">
           <input id ="customer_search" class="search_input" type="text" name="" placeholder="Search Database by Customer Name...">
@@ -55,17 +55,18 @@
 
 <table id="customerTable">
     <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
+        <th class="customer_th">Name</th>
+        <th class="customer_th">Email</th>
+        <th class="customer_th">Phone Number</th>
+        
     </tr>
     {{#each customer}}
     <tr id = {{this.id}}>
-        <td>{{this.customer_name}}</td>
-        <td>{{this.customer_email}}</td>
-        <td>{{this.customer_phone}}</td>
-        <td><button value={{this.id}} class="delete">Delete</button></td>
-        <td><button value={{this.id}} class="update">Update</button></td>
+        <td class="customer_td">{{this.customer_name}}</td>
+        <td class="customer_td">{{this.customer_email}}</td>
+        <td class="customer_td">{{this.customer_phone}}</td>
+        <td class="customer_td"><button value={{this.id}} class="delete">Delete</button></td>
+        <td class="customer_td"><button value={{this.id}} class="update">Update</button></td>
     </tr>
     {{/each}}
 </table>

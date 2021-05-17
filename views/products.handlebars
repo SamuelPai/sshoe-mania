@@ -77,12 +77,12 @@
           </tr>
           {{#each product}}
           <tr id={{this.id}}>
-            <td>{{this.product_name}}</td>
-            <td>{{this.product_price}}</td>
-            <td>{{this.product_information}}</td>
-            <td>{{this.stock_amount}}</td>
-            <td><button value={{this.id}} class="delete">Delete</button></td>
-            <td><button value={{this.id}} class="update">Update</button></td>
+            <td class="table-data">{{this.product_name}}</td>
+            <td class="table-data">{{this.product_price}}</td>
+            <td class="table-data">{{this.product_information}}</td>
+            <td class="table-data">{{this.stock_amount}}</td>
+            <td class="table-data"><button value={{this.id}} class="delete">Delete</button></td>
+            <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
           </tr>
           {{/each}}
         </table>

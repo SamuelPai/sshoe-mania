@@ -1,4 +1,9 @@
-#customer_form, #customerTable {
+#customer_form, #customerTable, .title {
     margin: 25px;
     width: 65%;
+}
+
+#customerTable, .customer_td, .customer_th {
+    border: 3px solid black;
+    text-align: center; 
 }

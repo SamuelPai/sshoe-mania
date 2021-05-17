@@ -5,3 +5,8 @@
 .table-headers {
     margin-right: 100px;
 }
+
+#product_table, .table-headers, .table-data {
+    border: 3px solid black;
+    text-align: center; 
+}
