@@ -37,6 +37,15 @@ function getProducts() {
     })
 }
 
+function formatDate(order) {
+     console.log(JSON.parse(order[0]))
+    // for (let i = 0; i < order.length; i++) {
+    //     let currValue = order[i].order_date;
+        
+    //     //console.log("FORMATED DATE:", currValue.slice(0, 11));
+    // }
+}
+
 router.get("/", (req, res) => {
     let sqlQuery = "SELECT * FROM Customers";
     mysql.pool.query(sqlQuery, (err, result) => {
@@ -63,7 +72,7 @@ router.get("/orders", (req, res) => {
     let orders;
 
     new Promise((resolve, reject) => {
-        let sqlQuery = "SELECT customer_name FROM Customers";
+        let sqlQuery = "SELECT customer_name, customer_id FROM Customers";
         mysql.pool.query(sqlQuery, (err, result) => {
             if (err) {
                 console.log(err);
@@ -75,7 +84,7 @@ router.get("/orders", (req, res) => {
     }).then(val => {
         customers = val;
         new Promise((resolve, reject) => {
-            let sqlQuery = "SELECT credit_card_name FROM Payment_Methods";
+            let sqlQuery = "SELECT payment_method_id, credit_card_name FROM Payment_Methods";
             mysql.pool.query(sqlQuery, (err, result) => {
                 if (err) {
                     console.log(err);
@@ -87,7 +96,7 @@ router.get("/orders", (req, res) => {
         }).then(val => {
             payments = val;
             new Promise((resolve, reject) => {
-                let sqlQuery = "SELECT product_name FROM Products";
+                let sqlQuery = "SELECT product_id, product_name FROM Products";
                 mysql.pool.query(sqlQuery, (err, result) => {
                     if (err) {
                         console.log(err);
@@ -110,7 +119,7 @@ router.get("/orders", (req, res) => {
                     })
                 }).then(val => {
                     orders = val;
-                    console.log(orders)
+                    
                     let data = {
                         customers,
                         products,

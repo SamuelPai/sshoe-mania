@@ -44,35 +44,27 @@
                 id="total_price">
             </div>
             <br>
-            <div class="dropdown">
-              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Customer
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {{#each customers}}
-                <a class="dropdown-item" href="#">{{this.customer_name}}</a>
-                {{/each}}
-              </div>
-            <div class="dropdown">
-              <br>
-                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select Payment
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  {{#each payments}}
-                    <a class="dropdown-item" href="#">{{this.credit_card_name}}</a>
-                  {{/each}}
-                </div>
-            </div>
+            
+            <select id="customer-dropdown">
+              <option selected disabled>Customer</option>
+              {{#each customers}}
+                <option value={{this.customer_id}} class="dropdown-item" href="#">{{this.customer_name}}</option>
+              {{/each}}
+            </select>
             <br>
             <br>
+
+            <select id="payment-dropdown">
+              <option selected disabled>Payment</option>
+              {{#each payments}}
+                    <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
+              {{/each}}
+            </select>
             
             <div class="form-group">
-
               <br>
               <div class="form-group" "form-action-buttons">
-                <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+                <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
               </div>
           </form>
         </div>
@@ -83,41 +75,28 @@
             <legend>Add a Product!</legend>
 
           </div>
-          <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Order
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+          <select id="order-dropdown">
+            <option selected disabled>Order</option>
               {{#each orders}}
-                <a class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</a>
+                    <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</option>
               {{/each}}
-            </div>
-          </div>
+          </select>
           <br>
           <br>
-          <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Product
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <select id = "product-dropdown">
+            <option selected disabled>Product</option>
               {{#each products}}
-                <a class="dropdown-item" href="#">{{this.product_name}}</a>
+                    <option value={{this.product_id}} class="dropdown-item" href="#">{{this.product_name}}</option>
               {{/each}}
-            </div>
-          </div>
+          </select>
           <br>
           <br>
-
-
-
-
           <div class="form-group">
 
             <br>
             <div class="form-group" "form-action-buttons">
-              <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+              <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
             </div>
         </form>
         {{!-- <button class="btn-primary">View all Orders</button> --}}

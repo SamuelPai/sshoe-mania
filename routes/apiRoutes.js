@@ -15,6 +15,38 @@ router.post("/customer", (req, res) => {
     });
 });
 
+// Allows users to post a new order to the database.
+router.post("/order", (req, res) => {
+
+    let userInput = Object.values(req.body);
+    console.log(userInput);
+    let sqlQuery = "INSERT INTO Orders (order_date, price_total, customer_id, payment_method_id) VALUES (?, ?, ?, ?)";
+    mysql.pool.query(sqlQuery, userInput, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.sendStatus(200);
+    });
+});
+
+// Allows users to post a new entry into orders_products table.
+router.post("/orders_products", (req, res) => {
+
+    let userInput = Object.values(req.body);
+    console.log(userInput)
+    let sqlQuery = "INSERT INTO Orders_Products (order_id, product_id) VALUES (?, ?)";
+    mysql.pool.query(sqlQuery, userInput, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.sendStatus(200);
+    });
+});
+
+
+
 router.post("/product", (req, res) => {
 
     let userInput = Object.values(req.body);
