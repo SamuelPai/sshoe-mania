@@ -1,27 +1,129 @@
 const router = require("express").Router();
 const mysql = require("../db/dbcon");
 
+// function getCustomers(cb){
+//     let sqlQuery = "SELECT customer_name FROM Customers";
+//    mysql.pool.query(sqlQuery, function(err,rows,fields){
+//         cb(rows);
+//     });
+// }
+
+// getCustomers(function(customers){
+//     getPayments(function(payments){
+//         getProducts(function(products){
+//              res.render(…);
+//         });
+//     });
+// });
+
+
+
+
+
+function getCustomers() {
+    let sqlQuery = "SELECT customer_name FROM Customers";
+    mysql.pool.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            return result;
+        }
+    })
+}
+
+function getPayments() {
+    let sqlQuery = "SELECT credit_card_name FROM Payment_Methods";
+    mysql.pool.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            return result;
+        }
+    })
+}
+
+function getProducts() {
+    let sqlQuery = "SELECT product_name FROM Products";
+    mysql.pool.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            return result;
+        }
+    })
+}
 
 router.get("/", (req, res) => {
     let sqlQuery = "SELECT * FROM Customers";
     mysql.pool.query(sqlQuery, (err, result) => {
-    if (err) {
+        if (err) {
             console.log(err);
         }
-    else {
-        // handlebars accepts an object an then one property that should hold an array of values.
-        let data = {
-            customer: result
+        else {
+            // handlebars accepts an object an then one property that should hold an array of values.
+            let data = {
+                customer: result
+            }
+            res.render("index", data);
         }
-        res.render("index", data);
-    }
-        
+
     })
-    
+
 })
 
 router.get("/orders", (req, res) => {
-    res.render("orders");
+    let customers;
+    let payments;
+    let products;
+
+    new Promise((resolve, reject) => {
+        let sqlQuery = "SELECT customer_name FROM Customers";
+        mysql.pool.query(sqlQuery, (err, result) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                resolve(result);
+            }
+        })
+    }).then(val => {
+        customers = val;
+        new Promise((resolve, reject) => {
+            let sqlQuery = "SELECT credit_card_name FROM Payment_Methods";
+            mysql.pool.query(sqlQuery, (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    resolve(result);
+                }
+            })
+        }).then(val => {
+            payments = val;
+            new Promise((resolve, reject) => {
+                let sqlQuery = "SELECT product_name FROM Products";
+                mysql.pool.query(sqlQuery, (err, result) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        resolve(result);
+                    }
+                })
+            }).then(val => {
+                products = val;
+                let data = {
+                    customers
+                }
+                res.render("orders", data);
+            })
+        })
+    })
+
+    
 })
 
 // router.get("/paymentMethods", (req, res) => {
@@ -29,28 +131,28 @@ router.get("/orders", (req, res) => {
 // })
 
 router.get("/paymentMethods", (req, res) => {
-  let sqlQuery = "SELECT * FROM Payment_Methods";
-  mysql.pool.query(sqlQuery, (err, result) => {
-      if (err) {
-              console.log(err);
-          }
-      else {
-          // handlebars accepts an object an then one property that should hold an array of values.
-          let data = {
-              paymentMethod: result
-          }
-          res.render("payment_methods", data);
-      }
+    let sqlQuery = "SELECT * FROM Payment_Methods";
+    mysql.pool.query(sqlQuery, (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // handlebars accepts an object an then one property that should hold an array of values.
+            let data = {
+                paymentMethod: result
+            }
+            res.render("payment_methods", data);
+        }
 
-      })
+    })
 })
 
 router.get("/products", (req, res) => {
     let sqlQuery = "SELECT * FROM Products";
     mysql.pool.query(sqlQuery, (err, result) => {
         if (err) {
-                console.log(err);
-            }
+            console.log(err);
+        }
         else {
             // handlebars accepts an object an then one property that should hold an array of values.
             let data = {
@@ -58,8 +160,8 @@ router.get("/products", (req, res) => {
             }
             res.render("products", data);
         }
-            
-        })
+
+    })
 })
 
 module.exports = router;
