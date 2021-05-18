@@ -28,6 +28,19 @@ router.post("/product", (req, res) => {
     });
 });
 
+router.post("/paymentMethod", (req, res) => {
+  let userInput = Object.values(req.body);
+  var sqlQuery = "INSERT INTO Payment_Methods (payment_type, credit_card_name, credit_card_number, credit_card_exp_date) VALUES (?, ?, ?, ?)";
+  // var inserts = [req.body.payment_type, req.body.Credit_card_name, req.body.Credit_card_number, req.body.Credit_card_exp_date];
+  mysql.pool.query(sqlQuery, userInput, (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
+
 router.get("/specific-customer/:name", (req, res) => {
     let target_user = req.params.name;
     let sqlQuery = "SELECT * FROM Customers WHERE customer_name = ?";
@@ -44,6 +57,7 @@ router.get("/specific-customer/:name", (req, res) => {
         }
     })
 });
+
 
 
 
