@@ -60,6 +60,7 @@ router.get("/orders", (req, res) => {
     let customers;
     let payments;
     let products;
+    let orders;
 
     new Promise((resolve, reject) => {
         let sqlQuery = "SELECT customer_name FROM Customers";
@@ -97,12 +98,27 @@ router.get("/orders", (req, res) => {
                 })
             }).then(val => {
                 products = val;
-                let data = {
-                    customers,
-                    products,
-                    payments
-                }
-                res.render("orders", data);
+                new Promise((resolve, reject) => {
+                    let sqlQuery = "SELECT order_id, order_date FROM Orders";
+                    mysql.pool.query(sqlQuery, (err, result) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            resolve(result);
+                        }
+                    })
+                }).then(val => {
+                    orders = val;
+                    console.log(orders)
+                    let data = {
+                        customers,
+                        products,
+                        payments,
+                        orders
+                    }
+                    res.render("orders", data);
+                })
             })
         })
     })

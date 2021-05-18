@@ -67,18 +67,7 @@
             </div>
             <br>
             <br>
-            <div class="dropdown">
-              <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Select Payment ID
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">No Payment Method</a>
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-              </div>
-            </div>
+            
             <div class="form-group">
 
               <br>
@@ -100,9 +89,9 @@
               Order
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">New Balance 992 Joe Freshgoods</a>
-              <a class="dropdown-item" href="#">Air Jordans 13 Retro Flint<< /a>
-                  <a class="dropdown-item" href="#">New Balance 340</a>
+              {{#each orders}}
+                <a class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</a>
+              {{/each}}
             </div>
           </div>
           <br>
