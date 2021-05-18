@@ -103,9 +103,9 @@
               Product
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">New Balance 992 Joe Freshgoods</a>
-              <a class="dropdown-item" href="#">Air Jordans 13 Retro Flint<< /a>
-                  <a class="dropdown-item" href="#">New Balance 340</a>
+              {{#each products}}
+                <a class="dropdown-item" href="#">{{this.product_name}}</a>
+              {{/each}}
             </div>
           </div>
           <br>

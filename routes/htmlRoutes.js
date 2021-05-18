@@ -97,7 +97,8 @@ router.get("/orders", (req, res) => {
             }).then(val => {
                 products = val;
                 let data = {
-                    customers
+                    customers,
+                    products
                 }
                 res.render("orders", data);
             })
