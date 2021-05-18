@@ -31,5 +31,7 @@ customer_form.addEventListener("submit", e => {
 })
 
 search_button.addEventListener("click", event => {
-    
+    fetch("/api/specific-customer/" + search_input.value).then(res => {
+        console.log(res.status)
+    })
 })
