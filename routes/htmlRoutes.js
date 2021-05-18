@@ -46,7 +46,8 @@ router.get("/", (req, res) => {
         else {
             // handlebars accepts an object an then one property that should hold an array of values.
             let data = {
-                customer: result
+                customer: result,
+
             }
             res.render("index", data);
         }
@@ -98,14 +99,15 @@ router.get("/orders", (req, res) => {
                 products = val;
                 let data = {
                     customers,
-                    products
+                    products,
+                    payments
                 }
                 res.render("orders", data);
             })
         })
     })
 
-    
+
 })
 
 // router.get("/paymentMethods", (req, res) => {

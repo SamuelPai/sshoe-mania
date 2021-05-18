@@ -54,6 +54,16 @@
                 <a class="dropdown-item" href="#">{{this.customer_name}}</a>
                 {{/each}}
               </div>
+            <div class="dropdown">
+              <br>
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Payment
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {{#each payments}}
+                    <a class="dropdown-item" href="#">{{this.credit_card_name}}</a>
+                  {{/each}}
+                </div>
             </div>
             <br>
             <br>
