@@ -1,25 +1,6 @@
 const router = require("express").Router();
 const mysql = require("../db/dbcon");
 
-// function getCustomers(cb){
-//     let sqlQuery = "SELECT customer_name FROM Customers";
-//    mysql.pool.query(sqlQuery, function(err,rows,fields){
-//         cb(rows);
-//     });
-// }
-
-// getCustomers(function(customers){
-//     getPayments(function(payments){
-//         getProducts(function(products){
-//              res.render(…);
-//         });
-//     });
-// });
-
-
-
-
-
 function getCustomers() {
     let sqlQuery = "SELECT customer_name FROM Customers";
     mysql.pool.query(sqlQuery, (err, result) => {

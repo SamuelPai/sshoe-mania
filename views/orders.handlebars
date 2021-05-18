@@ -31,7 +31,7 @@
     <tr>
       <td>
         <div class="row justify-content-center">
-          <form class="" action="index.html" method="post" autocomplete="off">
+          <form id = "orders_form" class="" action="index.html" method="post" autocomplete="off">
             <div class="form-group">
               <legend>Create New Order</legend>
               <label>Order Date</label>
@@ -51,7 +51,7 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 {{#each customers}}
-                  <a class="dropdown-item" href="#">{{this.customer_name}}</a>
+                <a class="dropdown-item" href="#">{{this.customer_name}}</a>
                 {{/each}}
               </div>
             </div>
@@ -68,37 +68,60 @@
                 <a class="dropdown-item" href="#">2</a>
                 <a class="dropdown-item" href="#">3</a>
               </div>
-              <br>
-              <br>
+            </div>
+            <div class="form-group">
 
-
-              <div class="dropdown">
-                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Insert Product (ID)
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">New Balance 992 Joe Freshgoods</a>
-                  <a class="dropdown-item" href="#">Air Jordans 13 Retro Flint<< /a>
-                      <a class="dropdown-item" href="#">New Balance 340</a>
-                </div>
+              <br>
+              <div class="form-group" "form-action-buttons">
+                <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
               </div>
-              <br>
-              <br>
-
-
-
-
-              <div class="form-group">
-
-                <br>
-                <div class="form-group" "form-action-buttons">
-                  <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
-                </div>
           </form>
         </div>
         <br>
-        <button class="btn-primary">View all Orders</button>
+
+        <form id="orders_products_form" class="" action="index.html" method="post" autocomplete="off">
+          <div class="form-group">
+            <legend>Add a Product!</legend>
+
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Order
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">New Balance 992 Joe Freshgoods</a>
+              <a class="dropdown-item" href="#">Air Jordans 13 Retro Flint<< /a>
+                  <a class="dropdown-item" href="#">New Balance 340</a>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Product
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">New Balance 992 Joe Freshgoods</a>
+              <a class="dropdown-item" href="#">Air Jordans 13 Retro Flint<< /a>
+                  <a class="dropdown-item" href="#">New Balance 340</a>
+            </div>
+          </div>
+          <br>
+          <br>
+
+
+
+
+          <div class="form-group">
+
+            <br>
+            <div class="form-group" "form-action-buttons">
+              <button type="button" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+            </div>
+        </form>
+        {{!-- <button class="btn-primary">View all Orders</button> --}}
       </td>
       <td style="padding-bottom: 1px;">
         <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 325px;">
