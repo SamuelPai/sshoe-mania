@@ -58,14 +58,14 @@
         <th class="customer_th">Name</th>
         <th class="customer_th">Email</th>
         <th class="customer_th">Phone Number</th>
-        
+
     </tr>
     {{#each customer}}
     <tr id = {{this.id}}>
         <td class="customer_td">{{this.customer_name}}</td>
         <td class="customer_td">{{this.customer_email}}</td>
         <td class="customer_td">{{this.customer_phone}}</td>
-        <td class="customer_td"><button value={{this.id}} class="delete">Delete</button></td>
+        <td class="customer_td"><button onclick=deletecustomer({{customer_id}}) class="delete">Delete</button></td>
         <td class="customer_td"><button value={{this.id}} class="update">Update</button></td>
     </tr>
     {{/each}}

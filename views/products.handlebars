@@ -81,7 +81,7 @@
             <td class="table-data">{{this.product_price}}</td>
             <td class="table-data">{{this.product_information}}</td>
             <td class="table-data">{{this.stock_amount}}</td>
-            <td class="table-data"><button value={{this.id}} class="delete">Delete</button></td>
+            <td class="table-data"><button onclick=deleteproduct({{product_id}}) class="delete">Delete</button></td>
             <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
           </tr>
           {{/each}}

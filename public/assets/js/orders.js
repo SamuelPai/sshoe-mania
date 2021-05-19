@@ -31,8 +31,8 @@ order_form.addEventListener("submit", event => {
         }
     }).then(response => {
         console.log(response);
-        customer_form.reset();
-        window.location.reload("/orders");
+        order_form.reset();
+        window.location.reload(true);
     })
 })
 
@@ -41,7 +41,7 @@ product_form.addEventListener("submit", event => {
 
     let selected_order = order.value;
     let selected_product = product.value;
-    
+
 
     let data = {
         selected_order,
@@ -56,7 +56,7 @@ product_form.addEventListener("submit", event => {
         }
     }).then(response => {
         console.log(response);
-        customer_form.reset();
-        window.location.reload("/orders");
+        product_form.reset();
+        window.location.reload(true);
     })
 })

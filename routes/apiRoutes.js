@@ -99,6 +99,54 @@ router.get("/specific-customer/:name", (req, res) => {
     })
 });
 
+router.delete("/orders/:order_id", (req, res) => {
+  let inserts = req.params.order_id;
+  let sqlQuery = "DELETE FROM Orders WHERE order_id = ?"
+  mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
+
+
+router.delete("/paymentMethods/:payment_method_id", (req, res) => {
+  let inserts = req.params.payment_method_id;
+  let sqlQuery = "DELETE FROM Payment_Methods WHERE payment_method_id = ?"
+  mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
+
+router.delete("/:customer_id", (req, res) => {
+  let inserts = req.params.customer_id;
+  let sqlQuery = "DELETE FROM Customers WHERE customer_id = ?"
+  mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
+
+router.delete("/products/:product_id", (req, res) => {
+  let inserts = req.params.product_id;
+  let sqlQuery = "DELETE FROM Products WHERE product_id = ?"
+  mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.sendStatus(200);
+  });
+});
 
 
 

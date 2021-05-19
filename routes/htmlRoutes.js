@@ -59,7 +59,7 @@ function formatDate(order) {
 }
 
 router.get("/", (req, res) => {
-  let sqlQuery = "SELECT * FROM Customers";
+  let sqlQuery = "SELECT * FROM Customers ORDER BY customer_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
     if (err) {
       console.log(err);
@@ -84,7 +84,7 @@ router.get("/orders", (req, res) => {
   let ordersTable;
 
   new Promise((resolve, reject) => {
-    let sqlQuery = "SELECT customer_name, customer_id FROM Customers";
+    let sqlQuery = "SELECT customer_name, customer_id FROM Customers ORDER BY customer_id ASC";
     mysql.pool.query(sqlQuery, (err, result) => {
       if (err) {
         console.log(err);
@@ -95,7 +95,7 @@ router.get("/orders", (req, res) => {
   }).then(val => {
     customers = val;
     new Promise((resolve, reject) => {
-      let sqlQuery = "SELECT payment_method_id, credit_card_name FROM Payment_Methods";
+      let sqlQuery = "SELECT payment_method_id, credit_card_name FROM Payment_Methods ORDER BY payment_method_id ASC";
       mysql.pool.query(sqlQuery, (err, result) => {
         if (err) {
           console.log(err);
@@ -106,7 +106,7 @@ router.get("/orders", (req, res) => {
     }).then(val => {
       payments = val;
       new Promise((resolve, reject) => {
-        let sqlQuery = "SELECT product_id, product_name FROM Products";
+        let sqlQuery = "SELECT product_id, product_name FROM Products ORDER BY product_id ASC";
         mysql.pool.query(sqlQuery, (err, result) => {
           if (err) {
             console.log(err);
@@ -117,7 +117,7 @@ router.get("/orders", (req, res) => {
       }).then(val => {
         products = val;
         new Promise((resolve, reject) => {
-          let sqlQuery = "SELECT order_id, order_date FROM Orders";
+          let sqlQuery = "SELECT order_id, order_date FROM Orders ORDER BY order_id ASC";
           mysql.pool.query(sqlQuery, (err, result) => {
             if (err) {
               console.log(err);
@@ -128,7 +128,7 @@ router.get("/orders", (req, res) => {
         }).then(val => {
           orders = val;
           new Promise((resolve, reject) => {
-            let sqlQuery = "SELECT o.order_id, c.customer_name, p.product_name, o.order_date, pm.payment_type, o.price_total FROM Orders o JOIN Orders_Products op ON o.order_id = op.order_id JOIN Products p ON op.product_id = p.product_id INNER JOIN Customers c ON o.customer_id = c.customer_id INNER JOIN Payment_Methods pm ON o.payment_method_id = pm.payment_method_id";
+            let sqlQuery = "SELECT o.order_id, c.customer_name, p.product_name, o.order_date, pm.payment_type, o.price_total FROM Orders o JOIN Orders_Products op ON o.order_id = op.order_id JOIN Products p ON op.product_id = p.product_id INNER JOIN Customers c ON o.customer_id = c.customer_id INNER JOIN Payment_Methods pm ON o.payment_method_id = pm.payment_method_id ORDER BY o.order_id ASC";
             mysql.pool.query(sqlQuery, (err, result) => {
               if (err) {
                 console.log(err);
@@ -162,7 +162,7 @@ router.get("/orders", (req, res) => {
 // })
 
 router.get("/paymentMethods", (req, res) => {
-  let sqlQuery = "SELECT * FROM Payment_Methods";
+  let sqlQuery = "SELECT * FROM Payment_Methods ORDER BY payment_method_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
     if (err) {
       console.log(err);
@@ -178,7 +178,7 @@ router.get("/paymentMethods", (req, res) => {
 })
 
 router.get("/products", (req, res) => {
-  let sqlQuery = "SELECT * FROM Products";
+  let sqlQuery = "SELECT * FROM Products ORDER BY product_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
     if (err) {
       console.log(err);
