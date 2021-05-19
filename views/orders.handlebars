@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Sshoe Mania</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -31,20 +30,18 @@
     <tr>
       <td>
         <div class="row justify-content-center">
-          <form id = "orders_form" class="" action="index.html" method="post" autocomplete="off">
+          <form id="orders_form" class="" action="index.html" method="post" autocomplete="off">
             <div class="form-group">
               <legend>Create New Order</legend>
               <label>Order Date</label>
-              <input type="date" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" size="40"
-                id="order_date">
+              <input type="date" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" size="40" id="order_date">
             </div>
             <div class="form-group">
               <label>Total Price</label>
-              <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="000.00"
-                id="total_price">
+              <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
             </div>
             <br>
-            
+
             <select id="customer-dropdown">
               <option selected disabled>Customer</option>
               {{#each customers}}
@@ -57,10 +54,10 @@
             <select id="payment-dropdown">
               <option selected disabled>Payment</option>
               {{#each payments}}
-                    <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
+                <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
               {{/each}}
             </select>
-            
+
             <div class="form-group">
               <br>
               <div class="form-group" "form-action-buttons">
@@ -78,18 +75,19 @@
 
           <select id="order-dropdown">
             <option selected disabled>Order</option>
-              {{#each orders}}
-                    <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</option>
-              {{/each}}
+            {{#each orders}}
+              <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</option>
+            {{/each}}
           </select>
           <br>
           <br>
-          <select id = "product-dropdown">
+          <select id="product-dropdown">
             <option selected disabled>Product</option>
-              {{#each products}}
-                    <option value={{this.product_id}} class="dropdown-item" href="#">{{this.product_name}}</option>
-              {{/each}}
+            {{#each products}}
+              <option value={{this.product_id}} class="dropdown-item" href="#">{{this.product_name}}</option>
+            {{/each}}
           </select>
+
           <br>
           <br>
           <div class="form-group">
@@ -115,44 +113,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>John Smith</td>
-              <td>Air Jordans 13 Retro Flint</td>
-              <td>1</td>
-              <td>05/01/2021</td>
-              <td>NULL</td>
-              <td>$286.99</td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Bill Jones</td>
-              <td>Air Jordans 13 Retro Flint</td>
-              <td>1</td>
-              <td>05/01/2021</td>
-              <td>Visa</td>
-              <td>$286.99</td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
+            {{#each ordersTable}}
+              <tr>
+                <td class="table-data">{{order_id}}</td>
+                <td class="table-data">{{customer_name}}</td>
+                <td class="table-data">{{product_name}}</td>
+                <td class="table-data">{{order_date}}</td>
+                <td class="table-data">{{payment_type}}</td>
+                <td class="table-data">{{price_total}}</td>
+                <td class="table-data"><button value={{this.id}} class="delete">Delete</button></td>
+                <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
+              </tr>
+            {{/each}}
           </tbody>
+
         </table>
