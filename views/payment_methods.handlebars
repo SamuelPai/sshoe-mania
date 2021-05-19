@@ -71,7 +71,7 @@
           <td>
             <button onclick=deletepaymentMethod({{payment_method_id}})>Delete</button>
           </td>
-          <td><button value={{this.id}} class="update">Update</button></td>
+          <td> <a href="/paymentMethods/{{payment_method_id}}">Update</a>
         </tr>
       {{/each}}
 

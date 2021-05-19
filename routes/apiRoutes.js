@@ -99,6 +99,39 @@ router.get("/specific-customer/:name", (req, res) => {
     })
 });
 
+router.get("/paymentMethods/:id", (req, res) => {
+    let sqlQuery = "SELECT * FROM Payment_Methods WHERE payment_method_id = ?";
+    let insert = [req.params.payment_method_id]
+    mysql.pool.query(sqlQuery, insert, (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            let data = {
+                paymentMethod: result[0]
+            }
+            res.render("/updatepaymendmethod", data)
+        }
+    })
+});
+
+
+router.put("/paymentMethods/:id", (req, res) => {
+  // console.log("I am here now param", req.body)
+    let sqlQuery = "UPDATE Payment_Methods SET payment_type = ?, credit_card_name = ?, credit_card_number = ?, credit_card_exp_date = ? WHERE payment_method_id = ?";
+    let insert = [req.body.payment_type, req.body.credit_card_name, req.body.credit_card_number, req.body.credit_card_exp_date, req.params.id];
+
+    mysql.pool.query(sqlQuery, insert, (err, result) => {
+        if (err) {
+            console.log(err);
+        }else{
+          res.status(200);
+          res.end();
+        }
+    })
+});
+
+
 router.delete("/orders/:order_id", (req, res) => {
   let inserts = req.params.order_id;
   let sqlQuery = "DELETE FROM Orders WHERE order_id = ?"

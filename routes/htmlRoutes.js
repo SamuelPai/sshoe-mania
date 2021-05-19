@@ -193,4 +193,18 @@ router.get("/products", (req, res) => {
   })
 })
 
+router.get("/paymentMethods/:id", (req, res) => {
+    let inserts = req.params.id;
+    let sqlQuery = "SELECT * FROM Payment_Methods WHERE payment_method_id = ?";
+    mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            let paymentMethod = result[0]
+            res.render("updatepaymentmethod", paymentMethod)
+        }
+    })
+});
+
 module.exports = router;
