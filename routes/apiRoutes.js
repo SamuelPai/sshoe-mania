@@ -132,6 +132,7 @@ router.put("/paymentMethods/:id", (req, res) => {
 });
 
 
+
 router.delete("/orders/:order_id", (req, res) => {
   let inserts = req.params.order_id;
   let sqlQuery = "DELETE FROM Orders WHERE order_id = ?"
