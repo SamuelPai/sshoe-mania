@@ -1,10 +1,19 @@
 const router = require("express").Router();
 const mysql = require("../db/dbcon");
 
+function extractObjValues(obj) {
+    // this function extracts the values of the input object
+    let values = [];
+    for (let key in obj) {
+        values.push(obj[key]);
+    }
+    return values;
+}
+
 // Allows users to post a new customer to the database.
 router.post("/customer", (req, res) => {
 
-    let userInput = Object.values(req.body);
+    let userInput = extractObjValues(req.body);
     let sqlQuery = "INSERT INTO Customers (customer_name, customer_email, customer_phone) VALUES (?, ?, ?)";
     mysql.pool.query(sqlQuery, userInput, (err, result) => {
         if (err) {
@@ -18,7 +27,7 @@ router.post("/customer", (req, res) => {
 // Allows users to post a new order to the database.
 router.post("/order", (req, res) => {
 
-    let userInput = Object.values(req.body);
+    let userInput = extractObjValues(req.body);
     console.log(userInput);
     let sqlQuery = "INSERT INTO Orders (order_date, price_total, customer_id, payment_method_id) VALUES (?, ?, ?, ?)";
     mysql.pool.query(sqlQuery, userInput, (err, result) => {
@@ -33,7 +42,7 @@ router.post("/order", (req, res) => {
 // Allows users to post a new entry into orders_products table.
 router.post("/orders_products", (req, res) => {
 
-    let userInput = Object.values(req.body);
+    let userInput = extractObjValues(req.body);
     console.log(userInput)
     let sqlQuery = "INSERT INTO Orders_Products (order_id, product_id) VALUES (?, ?)";
     mysql.pool.query(sqlQuery, userInput, (err, result) => {
@@ -49,7 +58,7 @@ router.post("/orders_products", (req, res) => {
 
 router.post("/product", (req, res) => {
 
-    let userInput = Object.values(req.body);
+    let userInput = extractObjValues(req.body);
     let sqlQuery = "INSERT INTO Products (product_name, product_price, product_information, stock_amount) VALUES (?, ?, ?, ?)";
     mysql.pool.query(sqlQuery, userInput, (err, result) => {
         if (err) {
@@ -61,7 +70,7 @@ router.post("/product", (req, res) => {
 });
 
 router.post("/paymentMethod", (req, res) => {
-  let userInput = Object.values(req.body);
+    let userInput = extractObjValues(req.body);
   var sqlQuery = "INSERT INTO Payment_Methods (payment_type, credit_card_name, credit_card_number, credit_card_exp_date) VALUES (?, ?, ?, ?)";
   // var inserts = [req.body.payment_type, req.body.Credit_card_name, req.body.Credit_card_number, req.body.Credit_card_exp_date];
   mysql.pool.query(sqlQuery, userInput, (err, result) => {
