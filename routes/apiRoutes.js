@@ -133,10 +133,10 @@ router.put("/paymentMethods/:id", (req, res) => {
 
 
 
-router.delete("/orders/:order_id", (req, res) => {
-  let inserts = req.params.order_id;
-  let sqlQuery = "DELETE FROM Orders WHERE order_id = ?"
-  mysql.pool.query(sqlQuery, [inserts], (err, result) => {
+router.delete("/orders/:order_product_id", (req, res) => {
+  let inserts = [req.params.order_product_id];
+  let sqlQuery = "DELETE FROM Orders_Products WHERE order_product_id= ?"
+  mysql.pool.query(sqlQuery, inserts, (err, result) => {
     if (err) {
       console.log(err);
       return;
