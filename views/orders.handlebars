@@ -22,109 +22,103 @@
     </div>
   </div>
 </nav>
-<div class="" style=" margin-left: 50px; margin-top: 50px;">
-  <h1>Orders</h1>
-  <p style=" margin-bottom: 40px;">This section allows you to <b>insert</b> a new order into the database, <b>delete</b>
-    a order from the database, and <b>select all</b> orders.</p>
-  <table>
+
+<h1 class="title">Orders</h1>
+<p class="title">This section allows you to <b>insert</b> a new order into the database, <b>delete</b>
+  a order from the database, and <b>select all</b> orders.</p>
+
+
+<form class="title" id="orders_form" action="index.html" method="post" autocomplete="off">
+<div class="padding_forms">
+  <div class="mb-3" >
+    <legend>Create New Order</legend>
+    <label>Order Date</label>
+    <input type="date" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" id="order_date">
+  </div>
+  <div class="mb-3">
+    <label>Total Price</label>
+    <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
+  </div>
+  <br>
+
+  <select id="customer-dropdown">
+    <option selected disabled>Customer</option>
+    {{#each customers}}
+      <option value={{this.customer_id}} class="dropdown-item" href="#">{{this.customer_name}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <br>
+
+  <select id="payment-dropdown">
+    <option selected disabled>Payment</option>
+    {{#each payments}}
+      <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
+    {{/each}}
+  </select>
+
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+</div>
+
+</form>
+
+<form class="title" id="orders_products_form" class="" action="index.html" method="post" autocomplete="off">
+<div class="padding_forms">
+  <div class="mb-3">
+    <legend>Add a Product!</legend>
+  </div>
+
+  <select id="order-dropdown">
+    <option selected disabled>Order</option>
+    {{#each orders}}
+      <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</option>
+    {{/each}}
+  </select>
+  <br>
+  <br>
+  <select id="product-dropdown">
+    <option selected disabled>Product</option>
+    {{#each products}}
+      <option value={{this.product_id}} class="dropdown-item" href="#">{{this.product_name}}</option>
+    {{/each}}
+  </select>
+
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+
+</div>
+
+</form>
+
+
+
+
+<table class="table table-hover" style="margin: 20px">
+
+  <tr>
+    <th>Order Id #</th>
+    <th>Customer Name</th>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Order Date</th>
+    <th>Payment Method</th>
+    <th>Total Price</th>
+  </tr>
+
+  {{#each ordersTable}}
     <tr>
-      <td>
-        <div class="row justify-content-center">
-          <form id="orders_form" class="" action="index.html" method="post" autocomplete="off">
-            <div class="form-group">
-              <legend>Create New Order</legend>
-              <label>Order Date</label>
-              <input type="date" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" size="40" id="order_date">
-            </div>
-            <div class="form-group">
-              <label>Total Price</label>
-              <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
-            </div>
-            <br>
+      <td class="table-data">{{order_id}}</td>
+      <td class="table-data">{{customer_name}}</td>
+      <td class="table-data">{{product_name}}</td>
+      <td class="table-data">{{order_date}}</td>
+      <td class="table-data">{{payment_type}}</td>
+      <td class="table-data">{{price_total}}</td>
+      <td class="table-data"><button onclick=deleteorder({{order_product_id}})>Delete</button></td>
+      <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
+    </tr>
+  {{/each}}
 
-            <select id="customer-dropdown">
-              <option selected disabled>Customer</option>
-              {{#each customers}}
-                <option value={{this.customer_id}} class="dropdown-item" href="#">{{this.customer_name}}</option>
-              {{/each}}
-            </select>
-            <br>
-            <br>
-
-            <select id="payment-dropdown">
-              <option selected disabled>Payment</option>
-              {{#each payments}}
-                <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
-              {{/each}}
-            </select>
-
-            <div class="form-group">
-              <br>
-              <div class="form-group" "form-action-buttons">
-                <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
-              </div>
-          </form>
-        </div>
-        <br>
-
-        <form id="orders_products_form" class="" action="index.html" method="post" autocomplete="off">
-          <div class="form-group">
-            <legend>Add a Product!</legend>
-
-          </div>
-
-          <select id="order-dropdown">
-            <option selected disabled>Order</option>
-            {{#each orders}}
-              <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</option>
-            {{/each}}
-          </select>
-          <br>
-          <br>
-          <select id="product-dropdown">
-            <option selected disabled>Product</option>
-            {{#each products}}
-              <option value={{this.product_id}} class="dropdown-item" href="#">{{this.product_name}}</option>
-            {{/each}}
-          </select>
-
-          <br>
-          <br>
-          <div class="form-group">
-
-            <br>
-            <div class="form-group" "form-action-buttons">
-              <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
-            </div>
-        </form>
-        {{!-- <button class="btn-primary">View all Orders</button> --}}
-      </td>
-      <td style="padding-bottom: 1px;">
-        <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 325px;">
-          <thead>
-            <tr>
-              <th>Order Id #</th>
-              <th>Customer Name</th>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Order Date</th>
-              <th>Payment Method</th>
-              <th>Total Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each ordersTable}}
-              <tr>
-                <td class="table-data">{{order_id}}</td>
-                <td class="table-data">{{customer_name}}</td>
-                <td class="table-data">{{product_name}}</td>
-                <td class="table-data">{{order_date}}</td>
-                <td class="table-data">{{payment_type}}</td>
-                <td class="table-data">{{price_total}}</td>
-                <td class="table-data"><button onclick=deleteorder({{order_product_id}})>Delete</button></td>
-                <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
-              </tr>
-            {{/each}}
-          </tbody>
-
-        </table>
+</table>
