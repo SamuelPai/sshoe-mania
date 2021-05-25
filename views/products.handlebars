@@ -82,58 +82,10 @@
             <td class="table-data">{{this.product_information}}</td>
             <td class="table-data">{{this.stock_amount}}</td>
             <td class="table-data"><button onclick=deleteproduct({{product_id}}) class="delete">Delete</button></td>
-            <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
+          <td> <a href="/products/{{this.product_id}}">Update</a>
           </tr>
           {{/each}}
         </table>
-
-        {{!-- <table class="table table-hover" style=" margin-left: 150px; margin-bottom: 220px;">
-
-          <thead>
-            <tr>
-              <th>id#</th>
-              <th>Product Name</th>
-              <th>Product Price</th>
-              <th>Product Information</th>
-              <th>Stock Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>1</th>
-              <td>Air Jordans 13 Retro Flint</td>
-              <td>$286.99</td>
-              <td>Shoes</td>
-              <td>50</td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>New Balance 992 Joe Freshgoods</td>
-              <td>$186.99</td>
-              <td>Shoes</td>
-              <td>50</td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <button type="button" class="btn btn-primary" name="Update" id="button1">Update</button>
-                <button type="button" class="btn btn-primary" name="Delete" id="button1">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table> --}}
       </td>
   </table>
 </div>

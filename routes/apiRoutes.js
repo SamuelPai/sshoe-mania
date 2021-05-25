@@ -117,10 +117,38 @@ router.get("/paymentMethods/:id", (req, res) => {
 
 
 router.put("/paymentMethods/:id", (req, res) => {
-  // console.log("I am here now param", req.body)
     let sqlQuery = "UPDATE Payment_Methods SET payment_type = ?, credit_card_name = ?, credit_card_number = ?, credit_card_exp_date = ? WHERE payment_method_id = ?";
     let insert = [req.body.payment_type, req.body.credit_card_name, req.body.credit_card_number, req.body.credit_card_exp_date, req.params.id];
 
+    mysql.pool.query(sqlQuery, insert, (err, result) => {
+        if (err) {
+            console.log(err);
+        }else{
+          res.status(200);
+          res.end();
+        }
+    })
+});
+
+router.put("/customers/:id", (req, res) => {
+
+    let sqlQuery = "UPDATE Customers SET customer_name = ?, customer_email = ?, customer_phone = ? WHERE customer_id = ?";
+    let insert = [req.body.customer_name, req.body.customer_email, req.body.customer_phone, req.params.id];
+    mysql.pool.query(sqlQuery, insert, (err, result) => {
+        if (err) {
+            console.log(err);
+        }else{
+          res.status(200);
+          res.end();
+        }
+    })
+});
+
+router.put("/products/:id", (req, res) => {
+
+    let sqlQuery = "UPDATE Products SET product_name = ?, product_price = ?, product_information = ?, stock_amount = ? WHERE product_id = ?";
+    let insert = [req.body.product_name, req.body.product_price, req.body.product_information, req.body.stock_amount, req.params.id];
+    console.log(insert);
     mysql.pool.query(sqlQuery, insert, (err, result) => {
         if (err) {
             console.log(err);

@@ -49,15 +49,6 @@ function getOrdersTable(data) {
 }
 
 
-function formatDate(order) {
-  console.log(JSON.parse(order[0]))
-  // for (let i = 0; i < order.length; i++) {
-  //     let currValue = order[i].order_date;
-
-  //     //console.log("FORMATED DATE:", currValue.slice(0, 11));
-  // }
-}
-
 router.get("/", (req, res) => {
   let sqlQuery = "SELECT * FROM Customers ORDER BY customer_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
@@ -157,10 +148,6 @@ router.get("/orders", (req, res) => {
 
 })})
 
-// router.get("/paymentMethods", (req, res) => {
-//     res.render("payment_methods");
-// })
-
 router.get("/paymentMethods", (req, res) => {
   let sqlQuery = "SELECT * FROM Payment_Methods ORDER BY payment_method_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
@@ -206,5 +193,37 @@ router.get("/paymentMethods/:id", (req, res) => {
         }
     })
 });
+
+router.get("/customers/:id", (req, res) => {
+  let customerId = req.params.id;
+  let sqlQuery = "SELECT * FROM Customers WHERE customer_id = ?";
+  mysql.pool.query(sqlQuery, [customerId], (err, result) => {
+      if (err) {
+          console.log(err);
+      }
+      else {
+          let customer = result[0]
+          res.render("updatecustomer", customer)
+      }
+  })
+});
+
+router.get("/products/:id", (req, res) => {
+  let customerId = req.params.id;
+  let sqlQuery = "SELECT * FROM Products WHERE product_id = ?";
+  mysql.pool.query(sqlQuery, [customerId], (err, result) => {
+      if (err) {
+          console.log(err);
+      }
+      else {
+          let product = result[0]
+          res.render("updateproduct", product)
+      }
+  })
+});
+
+
+
+
 
 module.exports = router;

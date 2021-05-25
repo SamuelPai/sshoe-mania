@@ -65,8 +65,8 @@
         <td class="customer_td">{{this.customer_name}}</td>
         <td class="customer_td">{{this.customer_email}}</td>
         <td class="customer_td">{{this.customer_phone}}</td>
-        <td class="customer_td"><button onclick=deletecustomer({{customer_id}}) class="delete">Delete</button></td>
-        <td class="customer_td"><button value={{this.id}} class="update">Update</button></td>
+        <td class="customer_td"><button onclick=deletecustomer({{this.customer_id}}) class="delete">Delete</button></td>
+        <td> <a href="/customers/{{this.customer_id}}">Update</a>
     </tr>
     {{/each}}
 </table>

@@ -3,9 +3,9 @@ function updateCustomer(id){
   $.ajax({
     url: '/api/customers/' + id,
     type: 'PUT',
-    data: $('update-customer').serialize(),
+    data: $('#update_customer').serialize(),
     success: function(result){
-      window.location.replace("/customers");
+      window.location.replace("/");
     }
   })
 };
