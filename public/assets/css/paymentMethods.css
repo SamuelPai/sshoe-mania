@@ -3,7 +3,7 @@
     width: 65%;
 }
 
-#payment_form, .paymentMethods_td, {
+#payment_form, .paymentMethods_td {
   border: 3px solid black;
   text-align: center;
 }

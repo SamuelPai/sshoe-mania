@@ -3,7 +3,7 @@
     width: 65%;
 }
 
-#customerTable, .customer_td, {
+#customerTable, .customer_td {
     border: 3px solid black;
     text-align: center;
 }
