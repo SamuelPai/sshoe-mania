@@ -25,69 +25,56 @@
 </nav>
 
 
-<div class="" style=" margin-left: 50px; margin-top: 50px;">
-  <h1>Product</h1>
-  <p style=" margin-bottom: 40px;">This page allows you to <b>insert</b> a new product into the database, <b>update</b>
-    a product from the database, <b>delete</b> a product from the database, and <b>filters</b> through the products.</p>
-  <table>
+<h1 class="title">Product</h1>
+<p class="title">This page allows you to <b>insert</b> a new product into the database, <b>update</b>
+  a product from the database, <b>delete</b> a product from the database, and <b>filters</b> through the products.</p>
 
-    <tr>
 
-      <td>
-        <div class="row justify-content-center">
-          <form id = "product_form" class="" autocomplete="off">
-            <div class="form-group">
-              <legend>Insert New Product</legend>
-              <label>Product Name</label>
-              <input id="product_name" type="text" name="payment_type" class="form-control" value=""
-                placeholder="Enter Payment Name Here..." size="40" id="product_name">
-            </div>
-            <div class="form-group">
-              <label>Product Price</label>
-              <input id = "product_price" type="text" name="Credit_card_name" class="form-control" value=""
-                placeholder="Enter Product Price Here..." id="product_price">
-            </div>
-            <div class="form-group">
-              <label>Product Information</label>
-              <input id="product_info" type="text" name="Credit_card_number" class="form-control" value=""
-                placeholder="Enter Product Details Here..." id="product_details">
-            </div>
-            <div class="form-group">
-              <label>Stock Amount</label>
-              <input id="product_amount" type="text" name="Credit_card_exp_date" class="form-control" value=""
-                placeholder="Enter Stock Amount Here..." id="stock_amount">
-            </div>
-            <br>
-            <div class="form-group" "form-action-buttons">
-              <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
-            </div>
-            <br>
-            <hr>
 
-          </form>
-        </div>
-      </td>
-      <td>
-        <table id="product_table">
-          <tr>
-            <th class="table-headers">Product Name</th>
-            <th class="table-headers">Price</th>
-            <th class="table-headers">Information</th>
-            <th class="table-headers">Stock Amount</th>
-          </tr>
-          {{#each product}}
-          <tr id={{this.id}}>
-            <td class="table-data">{{this.product_name}}</td>
-            <td class="table-data">{{this.product_price}}</td>
-            <td class="table-data">{{this.product_information}}</td>
-            <td class="table-data">{{this.stock_amount}}</td>
-            <td class="table-data"><button onclick=deleteproduct({{product_id}}) class="delete">Delete</button></td>
-          <td> <a href="/products/{{this.product_id}}">Update</a>
-          </tr>
-          {{/each}}
-        </table>
-      </td>
-  </table>
-</div>
+<form id = "product_form" autocomplete="off">
+  <div class="mb-3">
+    <legend>Insert New Product</legend>
+    <label>Product Name</label>
+    <input id="product_name" type="text" name="payment_type" class="form-control" value=""
+      placeholder="Enter Payment Name Here..." size="40" id="product_name">
+  </div>
+  <div class="mb-3">
+    <label>Product Price</label>
+    <input id = "product_price" type="number" name="Credit_card_name" class="form-control" value=""
+      placeholder="000.00" id="product_price">
+  </div>
+  <div class="mb-3">
+    <label>Product Information</label>
+    <input id="product_info" type="text" name="Credit_card_number" class="form-control" value=""
+      placeholder="Enter Product Details Here..." id="product_details">
+  </div>
+  <div class="mb-3">
+    <label>Stock Amount</label>
+    <input id="product_amount" type="number" name="Credit_card_exp_date" class="form-control" value=""
+      placeholder="Enter Stock Amount Here..." id="stock_amount">
+  </div>
+  <div>
+    <br>
+    <button type="submit" class="btn btn-primary" name="Submit" id="button1">Submit</button>
+  </div>
+  <br>
+</form>
 
-<br>
+<table class="table table-hover" id="product_table">
+  <tr>
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>Information</th>
+    <th>Stock Amount</th>
+  </tr>
+  {{#each product}}
+  <tr id={{this.id}}>
+    <td class="table-data">{{this.product_name}}</td>
+    <td class="table-data">{{this.product_price}}</td>
+    <td class="table-data">{{this.product_information}}</td>
+    <td class="table-data">{{this.stock_amount}}</td>
+    <td class="table-data"><button onclick=deleteproduct({{product_id}}) class="delete">Delete</button></td>
+  <td> <a href="/products/{{this.product_id}}">Update</a>
+  </tr>
+  {{/each}}
+</table>

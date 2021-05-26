@@ -23,58 +23,57 @@
   </div>
 </nav>
 
-<div class="" style=" margin-left: 50px; margin-top: 50px;">
-  <h1>Payment Methods</h1>
-  <p>This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
+<h1 class="title">Payment Methods</h1>
+<p class="title">This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
 
-  <form id ="payment_form">
-    <div class="form-group">
-      <legend>Insert New Payment Method</legend>
-      <label>Payment Type</label>
-      <input id = "payment_type" type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Method Type..." size="40" id="payment_type">
-    </div>
-    <div class="form-group">
-      <label>Credit Name</label>
-      <input id = "credit_card_name" type="text" name="Credit_card_name" class="form-control" value="" placeholder="Enter Credit Card Name..." id="Credit_card_name">
-    </div>
-    <div class="form-group">
-      <label>Credit Number</label>
-      <input id = "credit_card_number" type="text" name="Credit_card_number" class="form-control" value="" placeholder="Enter Credit Card Number..." id="Credit_card_number">
-    </div>
-    <div class="form-group">
-      <label>Credit Card Expiraton Date</label>
-      <input id = "credit_card_exp_date" type="text" name="Credit_card_exp_date" class="form-control" value="" placeholder="Enter Credit Card Expiration Date..." id="Credit_card_exp_date">
-    </div>
-    <br>
-    <div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
-
-
-
-  <table id="payment_table">
-
-      <tr >
-        <th>Payment Type</th>
-        <th>Credit Card Name</th>
-        <th>Credit Card Number</th>
-        <th>Credit Card Expiraton Date</th>
-      </tr>
-
-      {{#each paymentMethod}}
-        <tr>
-          <td>{{payment_type}}</td>
-          <td>{{credit_card_name}}</td>
-          <td>{{credit_card_number}}</td>
-          <td>{{credit_card_exp_date}}</td>
-          <td>
-            <button onclick=deletepaymentMethod({{payment_method_id}})>Delete</button>
-          </td>
-          <td> <a href="/paymentMethods/{{payment_method_id}}">Update</a>
-        </tr>
-      {{/each}}
+<form id="payment_form">
+  <div class="mb-3">
+    <legend>Insert New Payment Method</legend>
+    <label>Payment Type</label>
+    <input id="payment_type" type="text" name="payment_type" class="form-control" value="" placeholder="Enter Payment Method Type..." size="40" id="payment_type">
+  </div>
+  <div class="mb-3">
+    <label>Credit Name</label>
+    <input id="credit_card_name" type="text" name="Credit_card_name" class="form-control" value="" placeholder="Enter Credit Card Name..." id="Credit_card_name">
+  </div>
+  <div class="mb-3">
+    <label>Credit Number</label>
+    <input id="credit_card_number" type="number" name="Credit_card_number" class="form-control" value="" placeholder="Enter Credit Card Number..." id="Credit_card_number">
+  </div>
+  <div class="mb-3">
+    <label>Credit Card Expiraton Date</label>
+    <input id="credit_card_exp_date" type="date" name="Credit_card_exp_date" class="form-control" value="" placeholder="Enter Credit Card Expiration Date..." id="Credit_card_exp_date">
+  </div>
+  <br>
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <br>
+</form>
 
 
-  </table>
-</div>
+
+<table class="table table-hover" id="payment_table" style="margin: 20px">
+
+  <tr>
+    <th>Payment Type</th>
+    <th>Credit Card Name</th>
+    <th>Credit Card Number</th>
+    <th>Credit Card Expiraton Date</th>
+  </tr>
+
+  {{#each paymentMethod}}
+    <tr>
+      <td class="table-data">{{payment_type}}</td>
+      <td class="table-data">{{credit_card_name}}</td>
+      <td class="table-data">{{credit_card_number}}</td>
+      <td class="table-data">{{credit_card_exp_date}}</td>
+      <td class="table-data">
+        <button onclick=deletepaymentMethod({{payment_method_id}})>Delete</button>
+      </td>
+      <td class="table-data"> <a href="/paymentMethods/{{payment_method_id}}">Update</a>
+    </tr>
+  {{/each}}
+
+
+</table>

@@ -39,13 +39,13 @@
     </div>
     <div class="mb-3">
         <label for="userPhone" class="form-label">Customer Phone Number</label>
-        <input type="text" class="form-control" id="userPhone" placeholder="555-123-9654">
+        <input type="number" class="form-control" id="userPhone" placeholder="555-123-9654">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
  <div >
-      <div class="d-flex justify-content-center h-100">
+      <div style="margin: 20px">
         <div class="searchbar">
           <input id ="customer_search" class="search_input" type="text" name="" placeholder="Search Database by Customer Name...">
           <button id = "search_btn" class="btn btn-success">Search</button>
@@ -54,20 +54,20 @@
       </div>
     </div>
 
-<table id="customerTable">
+<table class="table table-hover"  id="customerTable">
     <tr>
-        <th class="customer_th">Name</th>
-        <th class="customer_th">Email</th>
-        <th class="customer_th">Phone Number</th>
+        <th >Name</th>
+        <th >Email</th>
+        <th>Phone Number</th>
 
     </tr>
     {{#each customer}}
     <tr id = {{this.id}}>
-        <td class="customer_td">{{this.customer_name}}</td>
-        <td class="customer_td">{{this.customer_email}}</td>
-        <td class="customer_td">{{this.customer_phone}}</td>
-        <td class="customer_td"><button onclick=deletecustomer({{this.customer_id}}) class="delete">Delete</button></td>
-        <td> <a href="/customers/{{this.customer_id}}">Update</a>
+        <td class="table-data">{{this.customer_name}}</td>
+        <td class="table-data">{{this.customer_email}}</td>
+        <td class="table-data">{{this.customer_phone}}</td>
+        <td class="table-data"><button onclick=deletecustomer({{this.customer_id}}) class="delete">Delete</button></td>
+        <td class="table-data"> <a href="/customers/{{this.customer_id}}">Update</a>
     </tr>
     {{/each}}
 </table>

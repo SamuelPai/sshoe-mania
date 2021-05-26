@@ -27,6 +27,9 @@
 <p class="title">This section allows you to <b>insert</b> a new order into the database, <b>delete</b>
   a order from the database, and <b>select all</b> orders.</p>
 
+  <hr>
+
+  <p class="title"  style="margin: 20px"> <b>Note</b>: Please create an Order for the Customer with the a Payment Method and the total price of the complete Order. In the second form, find Order that was just created and add a Product. If customer is purchasing multiple products, repeat the second form by picking the same order and then picking the relavent product. Repeat as needed. </p>
 
 <form class="title" id="orders_form" action="index.html" method="post" autocomplete="off">
 <div class="padding_forms">
@@ -37,7 +40,7 @@
   </div>
   <div class="mb-3">
     <label>Total Price</label>
-    <input type="text" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
+    <input type="number" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
   </div>
   <br>
 
@@ -104,7 +107,6 @@
     <th>Product Name</th>
     <th>Quantity</th>
     <th>Order Date</th>
-    <th>Payment Method</th>
     <th>Total Price</th>
   </tr>
 

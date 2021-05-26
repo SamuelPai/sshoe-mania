@@ -1,12 +1,14 @@
-#product_table {
+#product_table, #product_form, .title {
     margin: 25px;
+    width: 65%;
 }
 
 .table-headers {
-    margin-right: 100px;
+  border: 3px solid black;
+  text-align: center;
 }
 
-#product_table, .table-headers, .table-data {
+/* #product_table {
     border: 3px solid black;
-    text-align: center; 
-}
+    text-align: center;
+} */

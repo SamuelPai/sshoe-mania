@@ -1,0 +1,9 @@
+#payment_form, #paymentMethodsTable, .title {
+    margin: 25px;
+    width: 65%;
+}
+
+#payment_form, .paymentMethods_td, {
+  border: 3px solid black;
+  text-align: center;
+}
