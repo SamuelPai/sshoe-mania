@@ -35,12 +35,12 @@
   <div class="mb-3">
     <legend>Insert New Product</legend>
     <label>Product Name</label>
-    <input id="product_name" type="text" name="payment_type" class="form-control" value=""
+    <input id="product_name" required="required" type="text" name="payment_type" class="form-control" value=""
       placeholder="Enter Payment Name Here..." size="40" id="product_name">
   </div>
   <div class="mb-3">
     <label>Product Price</label>
-    <input id = "product_price" type="number" name="Credit_card_name" class="form-control" value=""
+    <input id = "product_price" required="required" type="number" name="Credit_card_name" class="form-control" value=""
       placeholder="000.00" id="product_price">
   </div>
   <div class="mb-3">
@@ -50,7 +50,7 @@
   </div>
   <div class="mb-3">
     <label>Stock Amount</label>
-    <input id="product_amount" type="number" name="Credit_card_exp_date" class="form-control" value=""
+    <input id="product_amount" required="required" type="number" name="Credit_card_exp_date" class="form-control" value=""
       placeholder="Enter Stock Amount Here..." id="stock_amount">
   </div>
   <div>
@@ -73,8 +73,8 @@
     <td class="table-data">{{this.product_price}}</td>
     <td class="table-data">{{this.product_information}}</td>
     <td class="table-data">{{this.stock_amount}}</td>
-    <td class="table-data"><button onclick=deleteproduct({{product_id}}) class="delete">Delete</button></td>
-  <td> <a href="/products/{{this.product_id}}">Update</a>
+    <td class="table-data"><button class="btn btn-danger"  onclick=deleteproduct({{product_id}}) class="delete">Delete</button></td>
+  <td> <a href="/products/{{this.product_id}}"><button type="button" class="btn btn-primary">Update</button></a>
   </tr>
   {{/each}}
 </table>

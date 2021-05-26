@@ -36,11 +36,11 @@
   <div class="mb-3" >
     <legend>Create New Order</legend>
     <label>Order Date</label>
-    <input type="date" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" id="order_date">
+    <input type="date" required="required" name="payment_type" class="form-control" value="" placeholder="MM/DD/YYYY" id="order_date">
   </div>
   <div class="mb-3">
     <label>Total Price</label>
-    <input type="number" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
+    <input type="number" required="required" name="Credit_card_name" class="form-control" value="" placeholder="000.00" id="total_price">
   </div>
   <br>
 
@@ -99,7 +99,7 @@
 
 
 
-<table class="table table-hover" style="margin: 20px">
+<table class="table table-hover" id="orders_table">
 
   <tr>
     <th>Order Id #</th>
@@ -118,8 +118,8 @@
       <td class="table-data">{{order_date}}</td>
       <td class="table-data">{{payment_type}}</td>
       <td class="table-data">{{price_total}}</td>
-      <td class="table-data"><button onclick=deleteorder({{order_product_id}})>Delete</button></td>
-      <td class="table-data"><button value={{this.id}} class="update">Update</button></td>
+      <td><button class="btn btn-danger"  onclick=deleteorder({{order_product_id}})>Delete</button></td>
+      <td class="table-data"><button value={{this.id}} class="update" class="btn btn-primary">Update</button></td>
     </tr>
   {{/each}}
 

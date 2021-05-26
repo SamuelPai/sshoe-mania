@@ -4,24 +4,22 @@
   <div class="form-group">
     <h1>Update {{credit_card_name}}</h1>
     <label>Payment Type</label>
-    <input type="text" name="payment_type" class="form-control" value="{{payment_type}}"  size="40" id="payment_type">
+    <input type="text" required="required" name="payment_type" class="form-control" value="{{payment_type}}"  size="40" id="payment_type">
   </div>
   <div class="form-group">
     <label>Credit Name</label>
-    <input type="text" name="credit_card_name" class="form-control" value="{{credit_card_name}}"  id="credit_card_name">
+    <input type="text" required="required" name="credit_card_name" class="form-control" value="{{credit_card_name}}"  id="credit_card_name">
   </div>
   <div class="form-group">
     <label>Credit Number</label>
-    <input  type="text" name="credit_card_number" class="form-control" value="{{credit_card_number}}"  id="credit_card_number">
+    <input  type="number" required="required" name="credit_card_number" class="form-control" value="{{credit_card_number}}"  id="credit_card_number">
   </div>
   <div class="form-group">
     <label>Credit Card Expiraton Date</label>
-    <input  type="text" name="credit_card_exp_date" class="form-control" value="{{credit_card_exp_date}}"  id="credit_card_exp_date">
+    <input  type="date" required="required" name="credit_card_exp_date" class="form-control" value="{{credit_card_exp_date}}"  id="credit_card_exp_date">
   </div>
   <br>
   <div>
     <button onclick=updatepaymentMethod1({{payment_method_id}})>Update</button>
   </div>
 </form>
-
-

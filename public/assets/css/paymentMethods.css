@@ -1,4 +1,4 @@
-#payment_form, #paymentMethodsTable, .title {
+#payment_form, #payment_table, #paymentMethodsTable, #update_payment, .title {
     margin: 25px;
     width: 65%;
 }

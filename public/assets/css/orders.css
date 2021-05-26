@@ -1,6 +1,12 @@
 #orders_products_form, #orders_form {
     border: 1px solid black;
-    buffer: 200px;
+    margin: 25px;
+    width: 65%;
+}
+
+#orders_table{
+    margin: 25px;
+    width: 65%;
 }
 
 .padding_forms {
