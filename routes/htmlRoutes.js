@@ -1,5 +1,9 @@
+// This has all of our HTML routes:
+
 const router = require("express").Router();
 const mysql = require("../db/dbcon");
+
+// Certain functions that we may need to call for populating our tables:
 
 function getCustomers() {
   let sqlQuery = "SELECT customer_name FROM Customers";
@@ -67,6 +71,7 @@ router.get("/", (req, res) => {
 
 })
 
+//Get the Orders table data through several calls and then send it to handlebars
 router.get("/orders", (req, res) => {
   let customers;
   let payments;
@@ -148,6 +153,7 @@ router.get("/orders", (req, res) => {
 
 })})
 
+//Get the Payment Methods table data through several calls and then send it to handlebars
 router.get("/paymentMethods", (req, res) => {
   let sqlQuery = "SELECT * FROM Payment_Methods ORDER BY payment_method_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
@@ -164,6 +170,7 @@ router.get("/paymentMethods", (req, res) => {
   })
 })
 
+//Get the Products table data through several calls and then send it to handlebars
 router.get("/products", (req, res) => {
   let sqlQuery = "SELECT * FROM Products ORDER BY product_id ASC";
   mysql.pool.query(sqlQuery, (err, result) => {
@@ -180,6 +187,15 @@ router.get("/products", (req, res) => {
   })
 })
 
+// The following get methods are for the supplementary update pages to update
+// user data. The user needs to see what they are updating so we write these
+// queries for them. Idea is taken from lecture:
+
+// Sources for Update supplement page idea: 340 Introduction to Databases Class
+// Lectures: Week 8: Learn using JavaScript and NodeJS. College: Oregon State
+// University:
+// https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587
+
 router.get("/paymentMethods/:id", (req, res) => {
     let inserts = req.params.id;
     let sqlQuery = "SELECT * FROM Payment_Methods WHERE payment_method_id = ?";
@@ -188,7 +204,9 @@ router.get("/paymentMethods/:id", (req, res) => {
             console.log(err);
         }
         else {
+           // We return just the first index value because we only want the first record data:
             let paymentMethod = result[0]
+            console.log("result here: ", result)
             res.render("updatepaymentmethod", paymentMethod)
         }
     })
@@ -223,7 +241,5 @@ router.get("/products/:id", (req, res) => {
 });
 
 
-
-
-
+// Here we export our route:
 module.exports = router;

@@ -1,3 +1,5 @@
+<!-- Here is our navbar: -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Sshoe Mania</a>
@@ -23,9 +25,11 @@
   </div>
 </nav>
 
+<!-- This is our Title and Header: -->
 <h1 class="title">Payment Methods</h1>
 <p class="title">This page allows you to <b>insert</b> a new payment method into the database, and <b>select all</b> payment methods</p>
 
+<!-- Our Payment form where the user inputs data: -->
 <form id="payment_form">
   <div class="mb-3">
     <legend>Insert New Payment Method</legend>
@@ -52,6 +56,10 @@
 </form>
 
 
+<!-- Here our table gets populated by the data from our database. The update
+and delete button ideas are from lecture. Using a onclick method and also Using
+a href link to populate a new page with the current record's data to update -->
+<!-- https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587 --> -->
 
 <table class="table table-hover" id="payment_table" style="margin: 20px">
 
@@ -60,6 +68,8 @@
     <th>Credit Card Name</th>
     <th>Credit Card Number</th>
     <th>Credit Card Expiraton Date</th>
+    <th> </th>
+    <th> </th>
   </tr>
 
   {{#each paymentMethod}}
@@ -69,7 +79,7 @@
       <td class="table-data">{{credit_card_number}}</td>
       <td class="table-data">{{credit_card_exp_date}}</td>
       <td class="table-data">
-        <button class="btn btn-danger"  onclick=deletepaymentMethod({{payment_method_id}})>Delete</button>
+        <button class="btn btn-danger" onclick=deletepaymentMethod({{payment_method_id}})>Delete</button>
       </td>
       <td class="table-data"> <a href="/paymentMethods/{{payment_method_id}}"><button type="button" class="btn btn-primary" name="button">Update</button></a>
     </tr>

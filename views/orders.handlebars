@@ -1,3 +1,5 @@
+<!-- Here is our navbar: -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Sshoe Mania</a>
@@ -23,6 +25,7 @@
   </div>
 </nav>
 
+<!-- This is our Title and Header: -->
 <h1 class="title">Orders</h1>
 <p class="title">This section allows you to <b>insert</b> a new order into the database, <b>delete</b>
   a order from the database, and <b>select all</b> orders.</p>
@@ -31,6 +34,8 @@
 
   <p class="title"  style="margin: 20px"> <b>Note</b>: Please create an Order for the Customer with the a Payment Method and the total price of the complete Order. In the second form, find Order that was just created and add a Product. If customer is purchasing multiple products, repeat the second form by picking the same order and then picking the relavent product. Repeat as needed. </p>
 
+
+<!-- Our Orders form where the user inputs data: -->
 <form class="title" id="orders_form" action="index.html" method="post" autocomplete="off">
 <div class="padding_forms">
   <div class="mb-3" >
@@ -98,6 +103,10 @@
 
 
 
+<!-- Here our table gets populated by the data from our database. The update
+and delete button ideas are from lecture. Using a onclick method and also Using
+a href link to populate a new page with the current record's data to update -->
+<!-- https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587 --> -->
 
 <table class="table table-hover" id="orders_table">
 
@@ -108,6 +117,7 @@
     <th>Quantity</th>
     <th>Order Date</th>
     <th>Total Price</th>
+    <th> </th>
   </tr>
 
   {{#each ordersTable}}

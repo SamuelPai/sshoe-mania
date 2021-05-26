@@ -1,3 +1,5 @@
+<!-- Here is our navbar: -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Sshoe Mania</a>
@@ -24,9 +26,13 @@
     </div>
 </nav>
 
+
+<!-- This is our Title and Header: -->
 <h1 class="title">Customers</h1>
 <p class="title">This page allows you to <b>insert</b> a new customer into the database, <b>delete</b> a customer, and <b>select</b> all customers</p>
 
+
+<!-- Our Customer form where the user inputs data: -->
 <form id="customer_form">
     <legend>Insert New Customer</legend>
     <div class="mb-3">
@@ -54,11 +60,14 @@
       </div>
     </div>
 
+<!-- Here our table gets populated by the data from our database: -->
 <table class="table table-hover"  id="customerTable">
     <tr>
         <th >Name</th>
         <th >Email</th>
         <th>Phone Number</th>
+        <th> </th>
+        <th> </th>
 
     </tr>
     {{#each customer}}

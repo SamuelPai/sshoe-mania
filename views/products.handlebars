@@ -1,3 +1,5 @@
+<!-- Here is our navbar: -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Sshoe Mania</a>
@@ -24,13 +26,13 @@
   </div>
 </nav>
 
-
+<!-- This is our Title and Header: -->
 <h1 class="title">Product</h1>
 <p class="title">This page allows you to <b>insert</b> a new product into the database, <b>update</b>
   a product from the database, <b>delete</b> a product from the database, and <b>filters</b> through the products.</p>
 
 
-
+<!-- Our Product form where the user inputs data: -->
 <form id = "product_form" autocomplete="off">
   <div class="mb-3">
     <legend>Insert New Product</legend>
@@ -60,12 +62,19 @@
   <br>
 </form>
 
+<!-- Here our table gets populated by the data from our database. The update
+and delete button ideas are from lecture. Using a onclick method and also Using
+a href link to populate a new page with the current record's data to update -->
+<!-- https://canvas.oregonstate.edu/courses/1810923/pages/week-8-learn-using-javascript-and-nodejs?module_item_id=20621587 --> -->
+
 <table class="table table-hover" id="product_table">
   <tr>
     <th>Product Name</th>
     <th>Price</th>
     <th>Information</th>
     <th>Stock Amount</th>
+    <th> </th>
+    <th> </th>
   </tr>
   {{#each product}}
   <tr id={{this.id}}>
