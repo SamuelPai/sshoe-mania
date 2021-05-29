@@ -82,22 +82,6 @@ router.post("/paymentMethod", (req, res) => {
   });
 });
 
-router.get("/specific-customer/:name", (req, res) => {
-    let target_user = req.params.name;
-    let sqlQuery = "SELECT * FROM Customers WHERE customer_name = ?";
-    mysql.pool.query(sqlQuery, [target_user], (err, result) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            console.log(result)
-            let data = {
-                customer: result
-            }
-            res.render("index", data)
-        }
-    })
-});
 
 router.get("/paymentMethods/:id", (req, res) => {
     let sqlQuery = "SELECT * FROM Payment_Methods WHERE payment_method_id = ?";

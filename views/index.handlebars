@@ -70,13 +70,15 @@
         <th> </th>
 
     </tr>
-    {{#each customer}}
-    <tr id = {{this.id}}>
-        <td class="table-data">{{this.customer_name}}</td>
-        <td class="table-data">{{this.customer_email}}</td>
-        <td class="table-data">{{this.customer_phone}}</td>
-        <td class="table-data"><button class="btn btn-danger" onclick=deletecustomer({{this.customer_id}}) class="delete">Delete</button></td>
-        <td class="table-data" class="makeButton"> <a href="/customers/{{this.customer_id}}"><button class="btn btn-primary" type="button" name="button">Update</button></a>
-    </tr>
-    {{/each}}
+    <tbody id = "tbody">
+        {{#each customer}}
+        <tr id = {{this.id}}>
+            <td class="table-data">{{this.customer_name}}</td>
+            <td class="table-data">{{this.customer_email}}</td>
+            <td class="table-data">{{this.customer_phone}}</td>
+            <td class="table-data"><button class="btn btn-danger" onclick=deletecustomer({{this.customer_id}}) class="delete">Delete</button></td>
+            <td class="table-data" class="makeButton"> <a href="/customers/{{this.customer_id}}"><button class="btn btn-primary" type="button" name="button">Update</button></a>
+        </tr>
+        {{/each}}
+    </tbody>
 </table>
