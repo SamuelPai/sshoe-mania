@@ -59,11 +59,30 @@ search_button.addEventListener("click", event => {
 
             let td4 = document.createElement("td");
             td4.setAttribute("class", "table-data");
+            let deleteBtn = document.createElement("button");
+            deleteBtn.setAttribute("class", "btn btn-danger delete");
+            deleteBtn.setAttribute("onclick", `deletecustomer(${currentCustomer.customer_id})`);
+            deleteBtn.innerText = "Delete";
+            td4.appendChild(deleteBtn);
+
+            let td5 = document.createElement("td");
+            td4.setAttribute("class", "table-data makeButton");
+            let aTag = document.createElement("a")
+            aTag.setAttribute("href", `/customers/${currentCustomer.customer_id}`);
+            let updateBtn = document.createElement("button")
+            updateBtn.setAttribute("class", "btn btn-primary");
+            updateBtn.setAttribute("type", "button");
+            updateBtn.setAttribute("name", "button");
+            updateBtn.innerText = "Update";
+            aTag.appendChild(updateBtn);
+            td5.appendChild(aTag);
+
             
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
+            tr.appendChild(td5);
 
             tbody.appendChild(tr);
 

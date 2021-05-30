@@ -18,6 +18,7 @@ function updateCustomer(id){
     type: 'PUT',
     data: $('#update_customer').serialize(),
     success: function(result){
+      console.log(result);
       window.location.replace("/");
     }
   })
