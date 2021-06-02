@@ -60,6 +60,7 @@
 
   <select id="payment-dropdown">
     <option selected disabled>Payment</option>
+    <option class="dropdown-item" href="#">NULL</option>
     {{#each payments}}
       <option value={{this.payment_method_id}} class="dropdown-item" href="#">{{this.credit_card_name}}</option>
     {{/each}}
