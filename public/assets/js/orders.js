@@ -14,7 +14,7 @@ order_form.addEventListener("submit", event => {
     let price = order_price.value;
     let selected_customer = customer.value;
     let selected_payment = payment.value;
-    console.log(selected_customer);
+    console.log(selected_payment);
 
     let data = {
         date: date,
