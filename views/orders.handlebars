@@ -81,7 +81,7 @@
   <select id="order-dropdown">
     <option selected disabled>Order</option>
     {{#each orders}}
-      <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Order Date</strong>: {{this.order_date}}</option>
+      <option value={{this.order_id}} class="dropdown-item" href="#"><strong>Order #</strong>: {{this.order_id}} <strong>Customer Name</strong>: {{this.customer_name}} <strong>Order Date</strong>: {{this.order_date}}</option>
     {{/each}}
   </select>
   <br>
@@ -114,8 +114,8 @@ a href link to populate a new page with the current record's data to update -->
     <th>Order Id #</th>
     <th>Customer Name</th>
     <th>Product Name</th>
-    <th>Quantity</th>
     <th>Order Date</th>
+    <th>Payment Method</th>
     <th>Total Price</th>
     <th> </th>
   </tr>

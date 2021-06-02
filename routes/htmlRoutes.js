@@ -104,7 +104,7 @@ router.get("/orders", (req, res) => {
   }).then(val => {
     customers = val;
     new Promise((resolve, reject) => {
-      let sqlQuery = "SELECT payment_method_id, credit_card_name FROM Payment_Methods ORDER BY payment_method_id ASC";
+      let sqlQuery = "SELECT payment_method_id, credit_card_name FROM Payment_Methods";
       mysql.pool.query(sqlQuery, (err, result) => {
         if (err) {
           console.log(err);
@@ -126,7 +126,7 @@ router.get("/orders", (req, res) => {
       }).then(val => {
         products = val;
         new Promise((resolve, reject) => {
-          let sqlQuery = "SELECT order_id, order_date FROM Orders ORDER BY order_id ASC";
+          let sqlQuery = "SELECT order_id, order_date, c.customer_name FROM Orders o INNER JOIN Customers c ON o.customer_id = c.customer_id ORDER BY order_id ASC";
           mysql.pool.query(sqlQuery, (err, result) => {
             if (err) {
               console.log(err);
@@ -156,7 +156,7 @@ router.get("/orders", (req, res) => {
               ordersTable
             }
             //getOrdersTable(data)
-            console.log(data)
+            console.log("Order page stuff: ", data)
             res.render("orders", data);
           })
         })
