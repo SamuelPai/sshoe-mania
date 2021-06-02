@@ -1,3 +1,4 @@
+
 -- Database Schema
 CREATE TABLE Customers (
 	customer_id INT AUTO_INCREMENT NOT NULL,
@@ -28,7 +29,7 @@ CREATE TABLE Products (
 CREATE TABLE Orders (
 	order_id INT AUTO_INCREMENT NOT NULL,
     customer_id INT NOT NULL,
-    payment_method_id INT,
+    payment_method_id INT DEFAULT NULL,
     order_date DATE NOT NULL,
     price_total DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY(customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE,
@@ -80,7 +81,8 @@ INSERT INTO Orders (customer_id, payment_method_id, order_date, price_total)
 VALUES
 	(4, 3, "2020-01-02", 300.00),
     (1, 1, "2018-07-04", 380.00),
-    (2, 5, "2021-03-12", 350.00);
+    (2, 5, "2021-03-12", 350.00),
+    (1, NULL, "2021-03-12", 100.00);
 
 INSERT INTO Orders_Products (order_id, product_id)
 VALUES
