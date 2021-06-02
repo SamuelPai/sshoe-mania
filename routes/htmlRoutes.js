@@ -137,7 +137,8 @@ router.get("/orders", (req, res) => {
         }).then(val => {
           orders = val;
           new Promise((resolve, reject) => {
-            let sqlQuery = "SELECT o.order_id, op.order_product_id, c.customer_name, p.product_name, o.order_date, pm.payment_type, o.price_total FROM Orders o JOIN Orders_Products op ON o.order_id = op.order_id JOIN Products p ON op.product_id = p.product_id INNER JOIN Customers c ON o.customer_id = c.customer_id INNER JOIN Payment_Methods pm ON o.payment_method_id = pm.payment_method_id ORDER BY o.order_id ASC";
+
+            let sqlQuery = "(SELECT o.order_id, op.order_product_id, c.customer_name, p.product_name, o.order_date, pm.payment_type, o.price_total FROM Orders o JOIN Orders_Products op ON o.order_id = op.order_id JOIN Products p ON op.product_id = p.product_id INNER JOIN Customers c ON o.customer_id = c.customer_id LEFT JOIN Payment_Methods pm ON o.payment_method_id = pm.payment_method_id ORDER BY o.order_id ASC)";
             mysql.pool.query(sqlQuery, (err, result) => {
               if (err) {
                 console.log(err);
@@ -156,7 +157,7 @@ router.get("/orders", (req, res) => {
               ordersTable
             }
             //getOrdersTable(data)
-            console.log("Order page stuff: ", data)
+            console.log("Order page stuff: ", ordersTable)
             res.render("orders", data);
           })
         })

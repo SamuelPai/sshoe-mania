@@ -89,5 +89,5 @@
 		JOIN Orders_Products op ON o.order_id = op.order_id
 		JOIN Products p ON op.product_id = p.product_id
 		INNER JOIN Customers c ON o.customer_id = c.customer_id
-		INNER JOIN Payment_Methods pm ON o.payment_method_id = pm.payment_method_id
+		LEFT JOIN Payment_Methods pm ON o.payment_method_id = pm.payment_method_id
 		ORDER BY o.order_id ASC;

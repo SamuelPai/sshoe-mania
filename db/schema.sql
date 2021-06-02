@@ -57,7 +57,6 @@ VALUES
 
 INSERT INTO Payment_Methods (payment_type, credit_card_name, credit_card_number, credit_card_exp_date)
 VALUES
-	("NULL", "NULL", "NULL", "NULL"),
 	("Credit Card", "Visa", "4024007181308379", "2022-03-23"),
     ("Credit Card", "MasterCard", "5471235649740561", "2026-09-26"),
     ("Credit Card", "AMEX", "373010965743147", "2024-11-23"),
