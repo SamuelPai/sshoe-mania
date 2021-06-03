@@ -28,8 +28,8 @@ router.post("/customer", (req, res) => {
 router.post("/order", (req, res) => {
   let userInput = extractObjValues(req.body);
   console.log(userInput);
-  if (userInput[3] === “NULL”) {
-    let sqlQuery = “INSERT INTO Orders (order_date, price_total, customer_id) VALUES (?, ?, ?)“;
+  if (userInput[3] === "NULL") {
+    let sqlQuery = "INSERT INTO Orders (order_date, price_total, customer_id) VALUES (?, ?, ?)";
     mysql.pool.query(sqlQuery, userInput, (err, result) => {
       if (err) {
         console.log(err);
@@ -39,7 +39,7 @@ router.post("/order", (req, res) => {
     });
   }
   else {
-    let sqlQuery = “INSERT INTO Orders (order_date, price_total, customer_id, payment_method_id) VALUES (?, ?, ?, ?)“;
+    let sqlQuery = "INSERT INTO Orders (order_date, price_total, customer_id, payment_method_id) VALUES (?, ?, ?, ?)";
     mysql.pool.query(sqlQuery, userInput, (err, result) => {
       if (err) {
         console.log(err);
