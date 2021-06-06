@@ -1,4 +1,6 @@
-
+DROP Database sshoe_mania;
+CREATE DATABASE sshoe_mania;
+USE sshoe_mania;
 -- Database Schema
 CREATE TABLE Customers (
 	customer_id INT AUTO_INCREMENT NOT NULL,
@@ -26,6 +28,7 @@ CREATE TABLE Products (
     PRIMARY KEY(product_id)
 );
 
+
 CREATE TABLE Orders (
 	order_id INT AUTO_INCREMENT NOT NULL,
     customer_id INT NOT NULL,
@@ -33,7 +36,7 @@ CREATE TABLE Orders (
     order_date DATE NOT NULL,
     price_total DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY(customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE,
-    FOREIGN KEY(payment_method_id) REFERENCES Payment_Methods(payment_method_id),
+    FOREIGN KEY(payment_method_id) REFERENCES Payment_Methods(payment_method_id) ON DELETE SET NULL,
     PRIMARY KEY (order_id)
 );
 
